@@ -1,0 +1,19 @@
+* text=auto
+
+*.js      elf=lf text
+*.css     elf=lf text
+*.pcss    elf=lf text
+*.scss    elf=lf text
+*.less    elf=lf text
+*.ts      elf=lf text
+*.tsx     elf=lf text
+*.ejs     elf=lf text
+*.html    elf=lf text
+*.htm     elf=lf text
+*.json    elf=lf text
+*.yml     elf=lf text
+
+.*config  elf=lf text
+.*rc      elf=lf text
+.*intignore  elf=lf text
+browserslist  elf=lf text
