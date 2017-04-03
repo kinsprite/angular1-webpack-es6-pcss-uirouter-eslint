@@ -1,26 +1,22 @@
 import angular from 'angular';
 import 'angular-ui-router';
-// import jq from 'jquery';
 
-import techsModule from './app/techs/index';
+import demoAppModule from './app/';
+import './themes/default/default.pcss';
+
 import routesConfig from './routes';
-import main from './app/main';
-import header from './app/header';
-import title from './app/title';
-import footer from './app/footer';
-import testModule from './app/test';
 
-import './index.css';
+import enUS from './i18n/en-US/';
+import zhCN from './i18n/zh-CN/';
 
-// angular.extend(window, { jQuery: jq, $: jq });  // eslint-disable-line angular/window-service
-
-// window['jQuery'] = require('jquery');
-// window['$'] = require('jquery');  // eslint-disable-line angular/window-service
 
 angular
-  .module('app', [techsModule, testModule, 'ui.router'])
-  .config(routesConfig)
-  .component('app', main)
-  .component('fountainHeader', header)
-  .component('fountainTitle', title)
-  .component('fountainFooter', footer);
+    .module('app', [demoAppModule, 'ui.router', 'pascalprecht.translate', 'ngAnimate', 'ngSanitize'])
+    .config(routesConfig)
+    .config(/** @ngInject */ function ($translateProvider) {
+        $translateProvider.translations('en_US', enUS);
+        $translateProvider.translations('zh_CN', zhCN);
+
+        $translateProvider.preferredLanguage('zh_CN');
+        $translateProvider.useSanitizeValueStrategy('escaped');
+    });

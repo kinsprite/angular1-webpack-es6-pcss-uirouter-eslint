@@ -43,8 +43,8 @@ function getPostcssPlugins(usePreCSS, useAssets, useSprites, spriteDir) {
       }));
   }
 
-  // *** Disable sprites ***
-  if (false && useSprites) {
+  // *** sprites ***
+  if (useSprites) {
     plugins.push(
       require('postcss-sprites')({
         spritePath: `./${conf.path.tmp(spriteDir)}`,
@@ -79,8 +79,8 @@ module.exports = {
     {
       loader: 'postcss-loader',
       options: {
-        plugins: () => getPostcssPlugins(true, true, isProduction, '.sprites/'),
-        syntax: 'postcss-scss',
+        plugins: () => getPostcssPlugins(true, true, isProduction && false, '.sprites/'), // *** Disable sprites ***
+        syntax: 'postcss-scss', // SCSS-like syntax
         sourceMap: true,
       },
     },

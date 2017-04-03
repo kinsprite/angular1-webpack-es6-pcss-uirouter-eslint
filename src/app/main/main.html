@@ -1,0 +1,12 @@
+<nav class="main-header">
+    <p class="header-title">
+        <a ui-sref="app" ui-sref-active="active" translate="MAIN.HOME_PAGE"></a>
+        <a ui-sref="app.leaflet" ui-sref-active="active" translate="MAIN.LEAFLET_DEMO"></a>
+        <a ui-sref="app.d3" ui-sref-active="active" translate="MAIN.D3_DEMO"></a>
+    </p>
+    <p class="header-login">
+        <a ng-click="$ctrl.onClickLogin()"
+           translate="{{ $ctrl.isLogined() ? 'MAIN.LOGOUT' : 'MAIN.LOGIN' }}"></a>
+    </p>
+</nav>
+<div class="main-content" ui-view=""></div>

@@ -94,6 +94,7 @@
         "jQuery": true,
         "angular": true,
         "define": true,
+        "require": true,
         "L": true  // Leaflet
     }
 }

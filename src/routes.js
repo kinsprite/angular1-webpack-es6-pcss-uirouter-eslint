@@ -3,26 +3,23 @@
 /** @ngInject */
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
+
   $urlRouterProvider
-    .when('/', '/test')
+    // .when('/', '/app')
     .otherwise('/');
 
   $stateProvider
     .state('app', {
-      url: '/app',
-      component: 'app',
+      url: '/',
+      component: 'main',
     })
-    .state('test', {
-      url: '/test',
-      component: 'test',
+    .state('app.leaflet', {
+      url: 'leaflet',
+      component: 'leafletDemo',
     })
-    .state('test.pcss', {
-      url: '/pcss',
-      component: 'pcssTest',
-    })
-    .state('test.scss', {
-      url: '/scss',
-      component: 'scssTest',
+    .state('app.d3', {
+      url: 'd3',
+      component: 'd3Demo',
     })
   ;
 }

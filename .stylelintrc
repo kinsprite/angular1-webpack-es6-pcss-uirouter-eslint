@@ -10,6 +10,7 @@
     "stylelint-declaration-strict-value"
   ],
   "rules": {
+    "indentation": 4,
     "at-rule-empty-line-before": [ "always", {
       "except": [
         "after-same-name",
@@ -27,7 +28,8 @@
     }],
     "max-empty-lines": 2,
     "number-leading-zero": "always",
-    "unit-whitelist": ["px", "em", "rem", "%", "s"],
+    "shorthand-property-no-redundant-values": null,
+    "unit-whitelist": ["px", "em", "rem", "%", "s", "vw", "vh"],
     "rscss/no-descendant-combinator": false,
     "rscss/class-format": [
       false,

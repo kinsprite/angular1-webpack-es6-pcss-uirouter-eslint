@@ -201,7 +201,7 @@ module.exports = function webpackBaseConf(env) {
             name: [
               // 公共 chunk ，不应添加 app entries
               'manifest', 'vendor-base', 'vendor-angular', 'vendor-ui-router', 'vendor-ng-ui',
-              'vendor-leaflet',
+              'vendor-leaflet', 'vendor-d3'
             ].reverse(),
             // js chunk 可以导出到 output.path 的其它位置, 但造成 require.ensure 加载时找不到文件。
             filename: isProduction() ? '[name]-[chunkhash].js' : '[name].js',
@@ -231,10 +231,11 @@ module.exports = function webpackBaseConf(env) {
       app: `./${conf.path.src('index')}`,
       // 'vendor': Object.keys(pkg.dependencies),
       'vendor-base': ['jquery', 'bootstrap', 'bootstrap.css', 'animate.css'],
-      'vendor-angular': ['angular'],
+      'vendor-angular': ['angular', 'angular-animate', 'angular-sanitize'],
       'vendor-ui-router': ['angular-ui-router'],
-      'vendor-ng-ui': ['angular-ui-bootstrap'],
+      'vendor-ng-ui': ['angular-translate', 'angular-ui-bootstrap'],
       'vendor-leaflet': ['leaflet', 'leaflet.css'],
+      'vendor-d3': ['d3'],
     },
   };
 };
