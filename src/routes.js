@@ -9,7 +9,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
         .state('app', {
             url: '/',
-            component: 'main',
+            template: '<main></main>',
         })
         .state('app.home', {
             url: 'home',
@@ -17,11 +17,11 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         })
         .state('app.leaflet', {
             url: 'leaflet',
-            component: 'leafletDemo',
+            component: '<leaflet-demo></leaflet-demo>',
         })
         .state('app.d3', {
             url: 'd3',
-            component: 'd3Demo',
+            template: '<d3-demo></d3-demo>',
         })
     ;
 }
