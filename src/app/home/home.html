@@ -1,4 +1,14 @@
 <div>
-    <h3>文件说明</h3>
+    <br>
+    <ol>
+        <strong>配置文件说明</strong><br><br>
+        <li>conf/<strong>css-loaders.config.js</strong> -- 支持 SCSS-like 语法(precss)、Grid布局(lost)、CSSNext语法等</li>
+        <li>conf/<strong>webpack-base.conf.js</strong> -- Webpack配置文件。
+            其中, “webpack.ProvidePlugin”配置$、jQuery等全局变量对应哪些模块；
+            “resolve.alias”配置路径或模块的别名；“webpack.optimize.CommonsChunkPlugin”与“entry”，则定义打包时分成几块。
+        </li>
+        <li>gulp_tasks/<strong>misc.js</strong> -- 其中的“other”函数实现gulp copy非webpack打包的文件。</li>
+        <li>src/<strong>index.ejs</strong> -- 相当于index.html，详情“<a href="https://www.npmjs.com/package/html-webpack-plugin">html-webpack-plugin</a>”。</li>
+    </ol>
     <p></p>
 </div>

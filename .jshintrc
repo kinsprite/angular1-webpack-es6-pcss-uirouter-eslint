@@ -93,6 +93,7 @@
         "$": true,
         "jQuery": true,
         "angular": true,
+        "module": true,
         "define": true,
         "require": true,
         "L": true  // Leaflet
