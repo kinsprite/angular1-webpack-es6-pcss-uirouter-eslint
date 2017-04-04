@@ -17,7 +17,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         })
         .state('app.leaflet', {
             url: 'leaflet',
-            component: '<leaflet-demo></leaflet-demo>',
+            template: '<leaflet-demo></leaflet-demo>',
         })
         .state('app.d3', {
             url: 'd3',

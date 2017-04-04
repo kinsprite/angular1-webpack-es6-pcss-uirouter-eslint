@@ -1,9 +1,19 @@
 <div>
     <br>
     <ol>
+        <strong>运行说明</strong>
+        <br>
+        <li>安装<strong>NodeJS v6.x LTS</strong>版本: <a href="https://nodejs.org">https://nodejs.org</a></li>
+        <li>安装<strong>gulp-cli</strong>，执行命令行: <em>npm install -g gulp-cli</em></li>
+        <li>安装项目依赖的npm包：在当前项目根目录(angular1-webpack-es6-pcss-uirouter-jshint)执行命令: <em>npm install</em></li>
+        <li>运行<strong>开发模式</strong>: <em>gulp serve</em></li>
+        <li>运行<strong>Release模式</strong>: <em>gulp build</em></li>
+    </ol>
+    <br>
+    <ol>
         <strong>配置文件说明</strong>
         <br>
-        <li>conf/<strong>css-loaders.config.js</strong> -- 支持 SCSS-like 语法(precss)、Grid布局(lost)、CSSNext语法等</li>
+        <li>conf/<strong>css-loaders.config.js</strong> -- 支持 SCSS-like 语法(precss)、Grid布局(lost)、CSSNext语法、autoprefixer等。</li>
         <li>conf/<strong>webpack-base.conf.js</strong> -- Webpack配置文件。
             其中, “webpack.ProvidePlugin”配置$、jQuery等全局变量对应哪些模块；
             “resolve.alias”配置路径或模块的别名；“webpack.optimize.CommonsChunkPlugin”与“entry”，则定义打包时分成几块。
@@ -11,15 +21,14 @@
         <li>gulp_tasks/<strong>misc.js</strong> -- 其中的“other”函数实现gulp copy非webpack打包的文件。</li>
         <li>src/<strong>index.ejs</strong> -- 相当于index.html，详情“<a href="https://www.npmjs.com/package/html-webpack-plugin">html-webpack-plugin</a>”。</li>
     </ol>
-
     <br>
-
     <ol>
         <strong>参考</strong>
         <br>
         <li><a href="http://fountainjs.io/">http://fountainjs.io/</a></li>
         <li><a href="https://webpack.js.org/">https://webpack.js.org/</a></li>
         <li><a href="http://postcss.org/"><strong>http://postcss.org/</strong></a></li>
+        <li><a href="https://github.com/postcss/autoprefixer">https://github.com/postcss/autoprefixer</a></li>
         <li><a href="https://github.com/jonathantneal/precss"><strong>https://github.com/jonathantneal/precss</strong></a></li>
         <li><a href="http://cssnext.io/"><strong>http://cssnext.io/</strong></a></li>
         <li><a href="http://htmlhint.com/">http://htmlhint.com/</a></li>
