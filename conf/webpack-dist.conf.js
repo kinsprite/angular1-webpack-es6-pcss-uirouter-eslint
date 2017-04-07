@@ -9,9 +9,10 @@ const UglifyJsParallelPlugin = require('webpack-uglify-parallel');
 
 const conf = require('./gulp.conf');
 const baseConfig = require('./webpack-base.conf');
+const copyConfig = require('./webpack-copy.conf');
 
 module.exports = function webpackDistConf(env) {
-  return webpackMerge(baseConfig(env), {
+  return webpackMerge(baseConfig(env), copyConfig(env), {
     plugins: [
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(conf.webpackEnv.dist.name),

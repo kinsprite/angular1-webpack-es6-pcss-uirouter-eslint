@@ -18,7 +18,7 @@
             其中, “webpack.ProvidePlugin”配置$、jQuery等全局变量对应哪些模块；
             “resolve.alias”配置路径或模块的别名；“webpack.optimize.CommonsChunkPlugin”与“entry”，则定义打包时分成几块。
         </li>
-        <li>gulp_tasks/<strong>misc.js</strong> -- 其中的“other”函数实现gulp copy非webpack打包的文件。</li>
+        <li>conf/<strong>webpack-copy.conf.js</strong> -- Webpack copy files 的配置文件，针对无法找到依赖关系的文件。</li>
         <li>src/<strong>index.ejs</strong> -- 相当于index.html，详情“<a href="https://www.npmjs.com/package/html-webpack-plugin">html-webpack-plugin</a>”。</li>
     </ol>
     <br>

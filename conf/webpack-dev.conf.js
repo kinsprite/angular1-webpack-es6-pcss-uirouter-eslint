@@ -4,9 +4,10 @@ const path = require('path');
 
 const conf = require('./gulp.conf');
 const baseConfig = require('./webpack-base.conf');
+const copyConfig = require('./webpack-copy.conf');
 
 module.exports = function webpackDevConf(env) {
-  return webpackMerge(baseConfig(env), {
+  return webpackMerge(baseConfig(env), copyConfig(env), {
     plugins: [
       new webpack.NamedModulesPlugin(),
     ],

@@ -5,19 +5,30 @@ const gulp = require('gulp');
 const karma = require('karma');
 
 
-function karmaFinishHandler(/* done */) {
-  return failCount => (failCount ? new Error(`Failed ${failCount} tests.`) : null);
+function karmaFinishHandler(done ) {
+  return errorCode => {
+      const error = errorCode ? new Error(`Test failed, error code ${errorCode}.`) : undefined;
+      done(error);
+  }
 }
 
 function karmaSingleRun(done) {
   const configFile = path.join(process.cwd(), 'conf', 'karma.conf.js');
-  const karmaServer = new karma.Server({ configFile }, karmaFinishHandler(done));
+  const karmaServer = new karma.Server({
+      configFile,
+      singleRun: true,
+      autoWatch: false,
+  }, karmaFinishHandler(done));
   karmaServer.start();
 }
 
 function karmaAutoRun(done) {
-  const configFile = path.join(process.cwd(), 'conf', 'karma-auto.conf.js');
-  const karmaServer = new karma.Server({ configFile }, karmaFinishHandler(done));
+  const configFile = path.join(process.cwd(), 'conf', 'karma.conf.js');
+  const karmaServer = new karma.Server({
+      configFile,
+      singleRun: false,
+      autoWatch: true,
+  }, karmaFinishHandler(done));
   karmaServer.start();
 }
 

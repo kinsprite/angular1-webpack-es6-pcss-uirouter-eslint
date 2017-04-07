@@ -30,8 +30,7 @@
       "custom-properties",
       "dollar-variables",
       "declarations",
-      "rules",
-      "at-rules"
+      "rules"
     ],
     "order/properties-order": null
   }

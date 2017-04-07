@@ -1,9 +1,10 @@
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const baseConfig = require('./webpack-base.conf');
+const copyConfig = require('./webpack-copy.conf');
 
 module.exports = function webpackTestConf(env) {
-  return webpackMerge(baseConfig(env), {
+  return webpackMerge(baseConfig(env), copyConfig(env), {
     plugins: [
       new webpack.NamedModulesPlugin(),
     ],

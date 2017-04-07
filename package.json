@@ -25,6 +25,7 @@
     "browser-sync": "^2.18.8",
     "browser-sync-spa": "^1.0.3",
     "chunk-manifest-webpack-plugin": "^1.0.0",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.27.3",
     "del": "^2.2.2",
     "doiuse": "^2.6.0",
