@@ -1,7 +1,7 @@
 
 class LoginState {
     /** @ngInject */
-    constructor ($log) {
+    constructor($log) {
         this.$log = $log;
         this.logined = false;
     }

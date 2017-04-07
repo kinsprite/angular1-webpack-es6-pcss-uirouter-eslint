@@ -1,19 +1,19 @@
 <!doctype html>
 <html>
-  <head>
-    <base href="/">
+<head>
+    <!--<base href="/">-->
     <meta charset="utf-8">
     <title>Angular1 ES6 PostCSS</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" type="image/png" href="http://fountainjs.io/assets/imgs/fountain.png" />
-  </head>
+    <link rel="icon" type="image/png" href="http://fountainjs.io/assets/imgs/fountain.png"/>
+</head>
 
-  <body ng-app="app">
+<body ng-app="app">
     <ui-view></ui-view>
     <script>
-      window.webpackManifest = <%= htmlWebpackPlugin.files.webpackManifestJson %> ;
+        window.webpackManifest = <%= htmlWebpackPlugin.files.webpackManifestJson %> ;
     </script>
     <%= htmlWebpackPlugin.files.webpackManifest %>
-  </body>
+</body>
 </html>

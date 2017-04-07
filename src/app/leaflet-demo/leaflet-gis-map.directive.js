@@ -2,12 +2,12 @@
 import L from 'leaflet';
 
 function leafletGisMapDirective() {
-    function link(scope, element /*, attrs*/) {
+    function link(scope, element /* , attrs */) {
         const container = element[0];
 
         // create a map in the div, set the view to a given place and zoom
         const map = L.map(container, {
-            renderer: L.canvas()
+            renderer: L.canvas(),
         }).setView([51.505, -0.09], 13);
 
         // add an OpenStreetMap tile layer
@@ -20,13 +20,13 @@ function leafletGisMapDirective() {
             color: 'red',
             fillColor: '#f03',
             fillOpacity: 0.5,
-            radius: 500
+            radius: 500,
         }).addTo(map);
 
         L.polygon([
             [51.509, -0.08],
             [51.503, -0.06],
-            [51.51, -0.047]
+            [51.51, -0.047],
         ]).addTo(map);
 
         // on Destroy

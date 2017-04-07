@@ -9,6 +9,6 @@ import leafletDemoModule from './leaflet-demo/';
 
 const moduleName = 'demo-app';
 
-angular.module(moduleName, [componentsModule, mainModule, homeModule, d3DemoModule, leafletDemoModule, ]);
+angular.module(moduleName, [componentsModule, mainModule, homeModule, d3DemoModule, leafletDemoModule]);
 
 export default moduleName;

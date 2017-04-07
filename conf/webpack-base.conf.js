@@ -30,15 +30,17 @@ module.exports = function webpackBaseConf(env) {
       rules: [
         {
           test: /\.js$/,
-          exclude: /node_modules/,
+          exclude: [/node_modules/, /src\/libs?/],
           use: [
-            'jshint-loader',
+            /** eslint 或 jshint, 二选一 */
+            'eslint-loader',
+            // 'jshint-loader',
           ],
           enforce: 'pre',
         },
         {
           test: /\.html?$/,
-          exclude: /node_modules/,
+          exclude: [/node_modules/, /src\/libs?/],
           use: [
             'htmlhint-loader',
           ],

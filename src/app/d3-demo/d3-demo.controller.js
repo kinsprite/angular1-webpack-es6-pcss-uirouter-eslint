@@ -16,13 +16,11 @@ class D3DemoCtrl {
         this.height = 680;
         this.radius = 32;
 
-        this.data = d3.range(20).map((i) => {
-            return {
-                index: i,
-                x: Math.round(Math.random() * (this.width - this.radius * 2) + this.radius),
-                y: Math.round(Math.random() * (this.height - this.radius * 2) + this.radius)
-            };
-        });
+        this.data = d3.range(20).map(i => ({
+            index: i,
+            x: Math.round((Math.random() * (this.width - (this.radius * 2))) + this.radius),
+            y: Math.round((Math.random() * (this.height - (this.radius * 2))) + this.radius),
+        }));
     }
 }
 

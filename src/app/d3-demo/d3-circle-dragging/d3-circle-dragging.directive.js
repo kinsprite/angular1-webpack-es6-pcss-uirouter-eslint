@@ -6,7 +6,7 @@
 import * as d3 from 'd3';
 
 function d3CircleDraggingDirective() {
-    function link(scope, element /*, attrs*/) {
+    function link(scope, element /* , attrs */) {
         const container = element[0];
 
         const canvas = d3.select(container).append('canvas')
@@ -27,7 +27,7 @@ function d3CircleDraggingDirective() {
         function render() {
             context.clearRect(0, 0, width, height);
 
-            for (var i = 0, n = circles.length, circle; i < n; ++i) {
+            for (let i = 0, n = circles.length, circle; i < n; i += 1) {
                 circle = circles[i];
                 context.beginPath();
                 context.moveTo(circle.x + radius, circle.y);
@@ -42,20 +42,19 @@ function d3CircleDraggingDirective() {
         }
 
         function dragsubject() {
-            var i = 0,
-                n = circles.length,
-                dx,
-                dy,
-                d2,
-                s2 = radius * radius * 4, // Double the radius.
-                circle,
-                subject;
+            const n = circles.length;
+            let dx;
+            let dy;
+            let d2;
+            let s2 = radius * radius * 4; // Double the radius.
+            let circle;
+            let subject;
 
-            for (i = 0; i < n; ++i) {
+            for (let i = 0; i < n; i += 1) {
                 circle = circles[i];
                 dx = d3.event.x - circle.x;
                 dy = d3.event.y - circle.y;
-                d2 = dx * dx + dy * dy;
+                d2 = (dx * dx) + (dy * dy);
                 if (d2 < s2) {
                     subject = circle;
                     s2 = d2;
