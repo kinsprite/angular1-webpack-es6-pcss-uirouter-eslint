@@ -7,8 +7,8 @@ module.exports = {
      *  Define your globals here
      */
     expect: true,
-      $: true,
-      jQuery: true,
+    $: true,
+    jQuery: true,
   },
   env: {
     browser: true,
