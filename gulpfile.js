@@ -1,3 +1,5 @@
+/* eslint indent: ["error", 2] */
+
 const gulp = require('gulp');
 const HubRegistry = require('gulp-hub');
 const browserSync = require('browser-sync');

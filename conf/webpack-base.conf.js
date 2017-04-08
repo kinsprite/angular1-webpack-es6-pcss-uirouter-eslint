@@ -1,3 +1,6 @@
+/* eslint indent: ["error", 2] */
+/* eslint global-require:"off" */
+
 const webpack = require('webpack');
 const conf = require('./gulp.conf');
 const path = require('path');
@@ -6,7 +9,7 @@ const assign = require('object-assign');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
-const InlineManifestJsonWebpackPlugin = require('./inline-manifest-json.webpack.plugins.js');
+const InlineManifestJsonWebpackPlugin = require('./inline-manifest-json.webpack.plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 
@@ -186,9 +189,9 @@ module.exports = function webpackBaseConf(env) {
             files: ['**/*.?(p|s)css'],
           }, stylelintOptions.scss)),
         new webpack.ProvidePlugin({
-          //***
-          //*** Webpack碰到全局变量 $ 时, 查找到指定的模块 'jquery'
-          //***
+          // ***
+          // *** Webpack碰到全局变量 $ 时, 查找到指定的模块 'jquery'
+          // ***
           $: 'jquery',
           jQuery: 'jquery',
           'window.jQuery': 'jquery', // for Angular 1.x
@@ -203,7 +206,7 @@ module.exports = function webpackBaseConf(env) {
             name: [
               // 公共 chunk ，不应添加 app entries
               'manifest', 'vendor-base', 'vendor-angular', 'vendor-ui-router', 'vendor-ng-ui',
-              'vendor-leaflet', 'vendor-d3'
+              'vendor-leaflet', 'vendor-d3',
             ].reverse(),
             // js chunk 可以导出到 output.path 的其它位置, 但造成 require.ensure 加载时找不到文件。
             filename: isProduction() ? '[name]-[chunkhash].js' : '[name].js',
@@ -215,9 +218,9 @@ module.exports = function webpackBaseConf(env) {
     }(isTest())),
     resolve: {
       alias: {
-        //***
-        //*** Webpack 查找模块/文件时，使用 alias 去替换文件路径.
-        //***
+        // ***
+        // *** Webpack 查找模块/文件时，使用 alias 去替换文件路径.
+        // ***
         jquery: 'jquery/dist/jquery.js',
         // 'bootstrap': 'bootstrap/dist/js/bootstrap.js',
         'bootstrap.css': 'bootstrap/dist/css/bootstrap.css', // 点号(.)相对于 gulp 执行目录
@@ -227,9 +230,9 @@ module.exports = function webpackBaseConf(env) {
       extensions: ['.js'],
     },
     entry: {
-      //***
-      //*** 在目标 HTML 中以几个模块加载(js/css)
-      //***
+      // ***
+      // *** 在目标 HTML 中以几个模块加载(js/css)
+      // ***
       app: `./${conf.path.src('index')}`,
       // 'vendor': Object.keys(pkg.dependencies),
       'vendor-base': ['jquery', 'bootstrap', 'bootstrap.css', 'animate.css'],

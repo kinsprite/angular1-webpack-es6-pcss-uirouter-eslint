@@ -1,3 +1,6 @@
+/* eslint indent: ["error", 2] */
+/* eslint global-require:"off" */
+
 const conf = require('./gulp.conf');
 
 module.exports = function (config) {

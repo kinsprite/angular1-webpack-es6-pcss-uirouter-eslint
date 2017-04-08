@@ -1,9 +1,9 @@
 /.idea/
 /.tmp/
-/conf/
+# /conf/
 /coverage/
 /dist/
-/gulp_tasks/
+# /gulp_tasks/
 /node_modules/
 /src/assets/
 /src/lib/

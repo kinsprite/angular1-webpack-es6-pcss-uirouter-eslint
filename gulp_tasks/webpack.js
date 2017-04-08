@@ -1,3 +1,5 @@
+/* eslint indent: ["error", 2] */
+
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const webpack = require('webpack');

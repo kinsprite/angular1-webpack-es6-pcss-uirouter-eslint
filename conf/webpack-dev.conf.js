@@ -1,3 +1,6 @@
+/* eslint indent: ["error", 2] */
+/* eslint global-require:"off" */
+
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const path = require('path');

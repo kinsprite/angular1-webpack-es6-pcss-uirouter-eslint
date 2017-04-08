@@ -1,3 +1,5 @@
+/* eslint indent: ["error", 2] */
+
 module.exports = {
   root: true,
   globals: {
@@ -5,6 +7,8 @@ module.exports = {
      *  Define your globals here
      */
     expect: true,
+      $: true,
+      jQuery: true,
   },
   env: {
     browser: true,
@@ -57,6 +61,9 @@ module.exports = {
       ArrayExpression: 1,
       ObjectExpression: 1,
     }],
+
+    // disallow trailing whitespace at the end of lines
+    'no-trailing-spaces': ['error', { skipBlankLines: true }],
 
     // a maximum number of lines per file
     'max-lines': ['error', {
@@ -147,7 +154,14 @@ module.exports = {
       /**
        * import
        */
-    'import/no-extraneous-dependencies': ['error', { 'devDependencies': ['**/*.spec.js'] }],
+    'import/no-extraneous-dependencies': ['error', {
+        'devDependencies': [
+            '**/*.spec.js',
+            'gulpfile.js',
+            'gulp_tasks/*.js',
+            'conf/*.conf.js',
+            'conf/*.plugin.js',
+        ]}],
 
       /**
        * compat

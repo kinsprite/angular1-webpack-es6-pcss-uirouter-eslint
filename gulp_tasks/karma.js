@@ -1,3 +1,5 @@
+/* eslint indent: ["error", 2] */
+
 process.env.NODE_ENV = 'test';
 
 const path = require('path');
@@ -5,19 +7,19 @@ const gulp = require('gulp');
 const karma = require('karma');
 
 
-function karmaFinishHandler(done ) {
-  return errorCode => {
-      const error = errorCode ? new Error(`Test failed, error code ${errorCode}.`) : undefined;
-      done(error);
-  }
+function karmaFinishHandler(done) {
+  return (errorCode) => {
+    const error = errorCode ? new Error(`Test failed, error code ${errorCode}.`) : undefined;
+    done(error);
+  };
 }
 
 function karmaSingleRun(done) {
   const configFile = path.join(process.cwd(), 'conf', 'karma.conf.js');
   const karmaServer = new karma.Server({
-      configFile,
-      singleRun: true,
-      autoWatch: false,
+    configFile,
+    singleRun: true,
+    autoWatch: false,
   }, karmaFinishHandler(done));
   karmaServer.start();
 }
@@ -25,9 +27,9 @@ function karmaSingleRun(done) {
 function karmaAutoRun(done) {
   const configFile = path.join(process.cwd(), 'conf', 'karma.conf.js');
   const karmaServer = new karma.Server({
-      configFile,
-      singleRun: false,
-      autoWatch: true,
+    configFile,
+    singleRun: false,
+    autoWatch: true,
   }, karmaFinishHandler(done));
   karmaServer.start();
 }

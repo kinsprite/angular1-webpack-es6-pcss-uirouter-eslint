@@ -1,4 +1,3 @@
-
 /**
  *  This file contains the variables used in other gulp files
  *  which defines tasks
@@ -6,6 +5,9 @@
  *  which are used in several places to keep good readability
  *  of the tasks
  */
+
+/* eslint indent: ["error", 2] */
+/* eslint global-require:"off" */
 
 const path = require('path');
 const gutil = require('gulp-util');

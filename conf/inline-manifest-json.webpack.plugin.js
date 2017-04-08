@@ -1,6 +1,10 @@
 /**
  * Created by qxqs1 on 2017/2/14.
  */
+
+/* eslint indent: ["error", 2] */
+/* eslint global-require:"off" */
+
 const sourceMappingURL = require('source-map-url');
 const assign = require('object-assign');
 

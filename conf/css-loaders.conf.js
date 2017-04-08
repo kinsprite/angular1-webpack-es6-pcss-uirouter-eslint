@@ -1,6 +1,5 @@
-/**
- * Created by qxqs1 on 2017/2/8.
- */
+/* eslint indent: ["error", 2] */
+/* eslint global-require:"off" */
 
 const path = require('path');
 const conf = require('./gulp.conf');
