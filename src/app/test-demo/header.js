@@ -1,7 +1,7 @@
 const headerHtml = require('./header.html');
 
 const header = {
-  template: headerHtml,
+    template: headerHtml,
 };
 
 export { header as default };

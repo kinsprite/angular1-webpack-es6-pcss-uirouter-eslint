@@ -1,8 +1,7 @@
-
 const footerHtml = require('./footer.html');
 
 const footer = {
-  template: footerHtml,
+    template: footerHtml,
 };
 
 export { footer as default };
