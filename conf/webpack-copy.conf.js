@@ -9,9 +9,18 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const conf = require('./gulp.conf');
 
 module.exports = function webpackCopyConf(env) {
+  function isProduction() {
+    return (env.name === conf.webpackEnv.dist.name);
+  }
+
   return {
     plugins: [
       new CopyWebpackPlugin([
+        {
+          // Leaflet 图标js加载不可添加 HASH
+          from: 'node_modules/leaflet/dist/images/',
+          to: 'images/leaflet/',
+        },
         {
           // copy GLOBs. 相对路径: context
           context: conf.path.src('assets/'),

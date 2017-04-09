@@ -33,7 +33,7 @@ module.exports = function webpackBaseConf(env) {
       rules: [
         {
           test: /\.js$/,
-          exclude: [/node_modules/, /src\/libs?/],
+          exclude: [/node_modules/, /src.libs?/],
           use: [
             /** eslint 或 jshint, 二选一 */
             'eslint-loader',
@@ -43,7 +43,7 @@ module.exports = function webpackBaseConf(env) {
         },
         {
           test: /\.html?$/,
-          exclude: [/node_modules/, /src\/libs?/],
+          exclude: [/node_modules/, /src.libs?/],
           use: [
             'htmlhint-loader',
           ],
@@ -56,7 +56,7 @@ module.exports = function webpackBaseConf(env) {
         {
           //  普通图像
           test: /\.(jpe?g|png|gif)$/,
-          exclude: /\.tmp.\.sprites/,
+          exclude: [/\.tmp.\.sprites/, /node_modules.leaflet/],
           use: [{
             loader: 'file-loader',
             options: {
@@ -77,6 +77,18 @@ module.exports = function webpackBaseConf(env) {
               name: isProduction() ? 'sprite-[hash].[ext]' : '[path][name].[ext]',
               outputPath: 'images/',
               publicPath: 'images/',
+            },
+          }],
+        },
+        {
+          //  Leaflet图标，需特殊处理，其使用js替换css class中的url().
+          test: /node_modules.leaflet.+\.(jpe?g|png|gif)$/,
+          use: [{
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]', // Leaflet 图标js加载不可添加 HASH
+              outputPath: 'images/leaflet/',
+              publicPath: 'images/leaflet/',
             },
           }],
         },
