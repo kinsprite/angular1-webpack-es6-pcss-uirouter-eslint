@@ -145,15 +145,33 @@ module.exports = {
       ignoreReadBeforeAssign: true,
     }],
 
-      /**
-       * JSDoc
-       */
+    // disallow use of the continue statement
+    'no-continue': 'warn',
+
+    // disallow use of unary operators, ++ and --
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+
+    // require quotes around object literal property names
+    'quote-props': ['warn', 'as-needed', { keywords: false, unnecessary: true, numbers: false }],
+
+    // specify whether double or single quotes should be used
+    quotes: ['warn', 'single', { avoidEscape: true }],
+
+    // disallow reassignment of function parameters
+    // disallow parameter object manipulation except for specific exclusions
+    'no-param-reassign': ['error', {
+      props: false, // *** ENABLE ***
+    }],
+
+    /**
+     * JSDoc
+     */
     'require-jsdoc': 'off',
     'valid-jsdoc': 'off',
 
-      /**
-       * import
-       */
+    /**
+     * import
+     */
     'import/no-extraneous-dependencies': ['error', {
         'devDependencies': [
             '**/*.spec.js',
@@ -163,14 +181,14 @@ module.exports = {
             'conf/*.plugin.js',
         ]}],
 
-      /**
-       * compat
-       */
+    /**
+     * compat
+     */
     'compat/compat': 'error',
 
-      /**
-       * filenames
-       */
+    /**
+     * filenames
+     */
     'filenames/match-regex': ['error', /^[a-z][a-z0-9\-\.]*$/g, true],
     'filenames/match-exported': 'off',
     'filenames/no-index': 'off',
