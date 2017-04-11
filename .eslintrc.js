@@ -83,7 +83,7 @@ module.exports = {
       ignoreTemplateLiterals: true,
     }],
     // a maximum number of statements allowed in function blocks
-    'max-statements': ['error', { max: 50 }, { ignoreTopLevelFunctions: true }],
+    'max-statements': ['error', { max: 50 }, { ignoreTopLevelFunctions: false }],
     // a maximum number of statements allowed per line
     'max-statements-per-line': ['error', { max: 1 }],
 
