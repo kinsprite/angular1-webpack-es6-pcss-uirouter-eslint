@@ -2,7 +2,6 @@ import angular from 'angular';
 import 'angular-ui-router';
 
 import demoAppModule from './app/';
-import './themes/default/default.pcss';
 
 import routesConfig from './routes';
 

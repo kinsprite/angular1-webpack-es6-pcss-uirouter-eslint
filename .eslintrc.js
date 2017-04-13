@@ -41,9 +41,12 @@ module.exports = {
     // line endings independent of operating system, VCS, or editor used across your codebase.
     'linebreak-style': ['error', 'unix'],
 
+    // a consistent linebreak style for operators.
+    'operator-linebreak': ['error', 'before'],
+
     // this option sets a specific tab width for your code
     indent: ['error', 4, {
-      SwitchCase: 0,
+      SwitchCase: 1,
       VariableDeclarator: 1,
       outerIIFEBody: 1,
       MemberExpression: 1,

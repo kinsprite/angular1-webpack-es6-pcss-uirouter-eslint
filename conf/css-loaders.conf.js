@@ -4,7 +4,7 @@
 const path = require('path');
 const conf = require('./gulp.conf');
 
-const assetsLoadPaths = ['assets/images/', 'assets/media/', 'assets/fonts/', 'assets/'];
+const assetsLoadPaths = ['assets/images/', 'assets/'];
 let spriteCount = 0;
 
 // postcss-sprite 被调用多次，需使用不同的文件名
@@ -29,7 +29,7 @@ function getPostcssPlugins(usePreCSS, useAssets, useSprites, spriteDir) {
           disable: true,
         },
       }),
-      require('postcss-math'),
+      require('postcss-math')({ functionName: 'mathcalc' }), // 必需给函数名，否则与 assets 的 resolve() 冲突
       require('postcss-utilities'));
   }
 
@@ -55,6 +55,7 @@ function getPostcssPlugins(usePreCSS, useAssets, useSprites, spriteDir) {
   }
 
   plugins.push(
+    require('postcss-strip-inline-comments'),
     require('postcss-flexbugs-fixes'),
     require('postcss-cssnext'),
     require('doiuse'),

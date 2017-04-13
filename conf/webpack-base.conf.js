@@ -63,7 +63,7 @@ module.exports = function webpackBaseConf(env) {
               // use HASH file name for 'production
               name: isProduction() ? '[name]-[hash].[ext]' : '[path][name].[ext]',
               outputPath: 'images/',
-              publicPath: 'images/',
+              // publicPath: 'images/',
             },
           }],
         },
@@ -76,7 +76,7 @@ module.exports = function webpackBaseConf(env) {
               // use HASH file name for 'production
               name: isProduction() ? 'sprite-[hash].[ext]' : '[path][name].[ext]',
               outputPath: 'images/',
-              publicPath: 'images/',
+              // publicPath: 'images/',
             },
           }],
         },
@@ -88,7 +88,7 @@ module.exports = function webpackBaseConf(env) {
             options: {
               name: '[name].[ext]', // Leaflet 图标js加载不可添加 HASH
               outputPath: 'images/leaflet/',
-              publicPath: 'images/leaflet/',
+              // publicPath: 'images/leaflet/',
             },
           }],
         },
@@ -101,7 +101,7 @@ module.exports = function webpackBaseConf(env) {
             // use HASH file name for 'production
             name: isProduction() ? '[name]-[hash].[ext]' : '[path][name].[ext]',
             outputPath: 'fonts/',
-            publicPath: 'fonts/',
+            // publicPath: 'fonts/',
           },
         },
         {
@@ -114,7 +114,7 @@ module.exports = function webpackBaseConf(env) {
             // use HASH file name for 'production
             name: isProduction() ? '[name]-[hash].[ext]' : '[path][name].[ext]',
             outputPath: 'images/',
-            publicPath: 'images/',
+            // publicPath: 'images/',
           },
         },
         {
@@ -126,7 +126,7 @@ module.exports = function webpackBaseConf(env) {
             // use HASH file name for 'production
             name: isProduction() ? 'sprite-[hash].[ext]' : '[path][name].[ext]',
             outputPath: 'images/',
-            publicPath: 'images/',
+            // publicPath: 'images/',
           },
         },
         {
@@ -138,7 +138,7 @@ module.exports = function webpackBaseConf(env) {
             // use HASH file name for 'production
             name: isProduction() ? '[name]-[hash].[ext]' : '[path][name].[ext]',
             outputPath: 'fonts/',
-            publicPath: 'fonts/',
+            // publicPath: 'fonts/',
           },
         },
         {
@@ -174,9 +174,9 @@ module.exports = function webpackBaseConf(env) {
       const plugins = [
         new webpack.NoEmitOnErrorsPlugin(),
         new HtmlWebpackPlugin({
-          minify: isProduction() ?
-            { collapseBooleanAttributes: true, collapseWhitespace: true, removeComments: true } :
-            false,
+          minify: isProduction()
+            ? { collapseBooleanAttributes: true, collapseWhitespace: true, removeComments: true }
+            : false,
           template: conf.path.src('index.ejs'),
         }),
         new ExtractTextPlugin({
@@ -245,7 +245,7 @@ module.exports = function webpackBaseConf(env) {
       // ***
       // *** 在目标 HTML 中以几个模块加载(js/css)
       // ***
-      app: `./${conf.path.src('index')}`,
+      app: [`./${conf.path.src('index.pcss')}`, `./${conf.path.src('index')}`],
       // 'vendor': Object.keys(pkg.dependencies),
       'vendor-base': ['jquery', 'bootstrap', 'bootstrap.css', 'animate.css'],
       'vendor-angular': ['angular', 'angular-animate', 'angular-sanitize'],
