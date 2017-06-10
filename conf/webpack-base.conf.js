@@ -217,7 +217,7 @@ module.exports = function webpackBaseConf(env) {
             // 必需 reverse() 才能确 HTML template 中加载 script 次序正确
             name: [
               // 公共 chunk ，不应添加 app entries
-              'manifest', 'vendor-base', 'vendor-angular', 'vendor-ui-router', 'vendor-ng-ui',
+              'manifest', 'babel-polyfill', 'vendor-base', 'vendor-angular', 'vendor-ui-router', 'vendor-ng-ui',
               'vendor-leaflet', 'vendor-d3',
             ].reverse(),
             // js chunk 可以导出到 output.path 的其它位置, 但造成 require.ensure 加载时找不到文件。
@@ -246,6 +246,7 @@ module.exports = function webpackBaseConf(env) {
       // *** 在目标 HTML 中以几个模块加载(js/css)
       // ***
       app: [`./${conf.path.src('index.pcss')}`, `./${conf.path.src('index')}`],
+      'babel-polyfill': ['babel-polyfill'],
       // 'vendor': Object.keys(pkg.dependencies),
       'vendor-base': ['jquery', 'bootstrap', 'bootstrap.css', 'animate.css'],
       'vendor-angular': ['angular', 'angular-animate', 'angular-sanitize'],

@@ -1,6 +1,7 @@
 /* eslint indent: ["error", 2] */
 
 const conf = require('./gulp.conf');
+const mockApi = require('./mock-api.conf');
 
 module.exports = function () {
   return {
@@ -10,5 +11,6 @@ module.exports = function () {
       ],
     },
     open: false,
+    middleware: [mockApi],
   };
 };
