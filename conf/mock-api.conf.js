@@ -7,7 +7,7 @@ const mam = require('mock-api-middleware');
 // You could put this directly in the middleware array of browser-sync
 const mockApi = mam('/rest',   // Route where to mount the API
   {
-    mockPath: './mocks/rest/', // Where to find the API files
+    mockPath: './mocks/rest.mocks/', // Where to find the API files
   });
 
 module.exports = mockApi;
