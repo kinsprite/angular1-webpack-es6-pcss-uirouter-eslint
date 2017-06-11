@@ -3791,9 +3791,9 @@ gulp-filter@^5.0.0:
     multimatch "^2.0.0"
     streamfilter "^1.0.5"
 
-gulp-hub@frankwallis/gulp-hub#13f44015242393fe5b79b74ff44c75b50c0d9a4a:
+gulp-hub@^4.1.0:
   version "4.1.0"
-  resolved "https://codeload.github.com/frankwallis/gulp-hub/tar.gz/13f44015242393fe5b79b74ff44c75b50c0d9a4a"
+  resolved "http://registry.npm.taobao.org/gulp-hub/download/gulp-hub-4.1.0.tgz#28bf4e9c23baf71e86070efff11dd679552676eb"
   dependencies:
     callsite "^1.0.0"
     fwd "^0.2.2"
