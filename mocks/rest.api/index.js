@@ -11,3 +11,4 @@
 const rest = require('../../conf/rest-api.conf');
 
 require('./login/')(rest);
+require('./books/')(rest);
