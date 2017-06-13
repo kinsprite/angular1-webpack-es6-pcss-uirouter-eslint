@@ -7,6 +7,12 @@ const mockApi = require('./mock-api.conf');
 const rest = require('./rest-api.conf');
 require('../mocks/rest.api/');
 
+function endFinished(req, res, next) {
+  if (!res.finished) {
+    next();
+  }
+}
+
 module.exports = function () {
   return {
     server: {
@@ -20,6 +26,7 @@ module.exports = function () {
       bodyParser.urlencoded({ extended: true }),
       bodyParser.json(),
       rest.processRequest(),
-      mockApi],
+      mockApi,
+      endFinished],
   };
 };
