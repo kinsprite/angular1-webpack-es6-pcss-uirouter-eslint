@@ -23,6 +23,10 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
             url: 'd3',
             template: '<d3-demo></d3-demo>',
         })
+        .state('app.mockApiNCssModule', {
+            url: 'mock-api-n-css-module',
+            template: '<mock-api-n-css-module></mock-api-n-css-module>',
+        })
     ;
 }
 

@@ -2,6 +2,7 @@
 const books = [{
     id: 0,
     name: 'Modern Javascript',
+    price: 99.9,
 }];
 
 const mapBooks = {
@@ -19,12 +20,12 @@ function getOneService(request, content, callback) {
 }
 
 function putOneService(request, content, callback) {
-    const book = mapBooks[request.parameters.bookId];
+    const book = mapBooks[parseInt(request.parameters.bookId, 10)];
 
     if (book && content) {
         const bookId = book.id;
         Object.assign(book, content, { id: bookId });
-        return callback(null, { result: 0 });
+        return callback(null, book);
     }
 
     const error = new Error('invalid parameters');
@@ -40,7 +41,7 @@ function postOneService(request, content, callback) {
         const book = Object.assign({}, content, { id: bookId });
         mapBooks[bookId] = book;
         books.push(book);
-        return callback(null, { result: 0, id: bookId });
+        return callback(null, book);
     }
 
     const error = new Error('invalid parameters');
@@ -49,14 +50,14 @@ function postOneService(request, content, callback) {
 }
 
 function deleteOneService(request, content, callback) {
-    const bookId = request.parameters.bookId;
+    const bookId = parseInt(request.parameters.bookId, 10);
 
     if (mapBooks[bookId]) {
         const book = mapBooks[bookId];
         delete mapBooks[bookId];
         books.splice(books.indexOf(book), 1);
 
-        return callback(null, { result: 0 });
+        return callback(null, { id: bookId });
     }
 
     const error = new Error('invalid parameters');
