@@ -62,7 +62,7 @@ export default `<div>Hello CSS Module</div>
             <td ng-bind="book.id"></td>
             <td ng-bind="book.name"></td>
             <td ng-bind="book.price"></td>
-            <td><button class="del-book" ng-click="$ctrl.delBook(book.id)">Delete</button></td>
+            <td><button class="${css['del-book']}" ng-click="$ctrl.delBook(book.id)">Delete</button></td>
         </tr>
     </tbody>
 </table>
