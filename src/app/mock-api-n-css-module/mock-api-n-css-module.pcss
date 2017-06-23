@@ -1,1 +1,23 @@
 // mock-api-n-css-module
+
+.UserTable {
+    width: 100%;
+
+    > tbody > tr {
+        &:nth-child(even) {
+            background: #ddd;
+        }
+
+        &:nth-child(odd) {
+            background: #bbb;
+        }
+    }
+
+    & td.important {
+        color: blue;
+    }
+}
+
+.BooksTable {
+    width: 100%;
+}

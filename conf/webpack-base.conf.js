@@ -143,9 +143,17 @@ module.exports = function webpackBaseConf(env) {
         },
         {
           test: /\.p?css$/,
+          exclude: /mock-api-n-css-module/,
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
-            use: cssLoaders.pcss(isProduction()),
+            use: cssLoaders.pcss(isProduction(), false),
+          }),
+        },
+        {
+          test: /mock-api-n-css-module.+\.p?css$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: cssLoaders.pcss(isProduction(), true),
           }),
         },
         {

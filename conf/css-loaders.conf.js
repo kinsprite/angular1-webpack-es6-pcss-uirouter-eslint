@@ -66,11 +66,11 @@ function getPostcssPlugins(usePreCSS, useAssets, useSprites, spriteDir) {
 }
 
 module.exports = {
-  pcss: isProduction => [
+  pcss: (isProduction, modules = false) => [
     {
       loader: 'css-loader',
       options: {
-        modules: false,
+        modules,
         minimize: isProduction,
         sourceMap: true,
         importLoaders: 1, // 该 loader 执行时的前面有几个。 loaders 执行的次序为 right to left
