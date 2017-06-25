@@ -8,6 +8,10 @@ class LeafletDemoCtrl {
 
     initData() {
     }
+
+    switchCRS() {
+        this.$scope.$broadcast('gis.map.switchCRS');
+    }
 }
 
 export default LeafletDemoCtrl;

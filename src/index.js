@@ -1,8 +1,9 @@
 import angular from 'angular';
 import 'angular-ui-router';
 
-import demoAppModule from './app/';
+import './lib/third-party/Leaflet.MovingMarker/MovingMarker';
 
+import demoAppModule from './app/';
 import routesConfig from './routes';
 
 import enUS from './i18n/en-US/';
