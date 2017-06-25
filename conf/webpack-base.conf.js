@@ -271,45 +271,44 @@ module.exports = function webpackBaseConf(env) {
         commonjs: 'angular-animate',
         commonjs2: 'angular-animate',
         amd: 'angular-animate',
-        global: 'angular',
       },
       'angular-sanitize': {
         commonjs: 'angular-sanitize',
         commonjs2: 'angular-sanitize',
         amd: 'angular-sanitize',
-        global: 'angular',
       },
       'angular-ui-router': {
         commonjs: 'angular-ui-router',
         commonjs2: 'angular-ui-router',
         amd: 'angular-ui-router',
-        global: 'angular',
       },
       'angular-translate': {
         commonjs: 'angular-translate',
         commonjs2: 'angular-translate',
         amd: 'angular-translate',
-        global: 'null',
       },
       'angular-ui-bootstrap': {
         commonjs: 'angular-ui-bootstrap',
         commonjs2: 'angular-ui-bootstrap',
         amd: 'angular-ui-bootstrap',
-        global: 'null',
       },
       bootstrap: {
         commonjs: 'bootstrap',
         commonjs2: 'bootstrap',
         amd: 'bootstrap',
-        global: 'jQuery',
       },
       jquery: {
         commonjs: 'jquery',
         commonjs2: 'jquery',
         amd: 'jquery',
-        global: 'jQuery',
+        root: 'jQuery',
       },
-      leaflet: 'L',
+      leaflet: {
+        commonjs: 'leaflet',
+        commonjs2: 'leaflet',
+        amd: 'leaflet',
+        root: 'L',
+      },
     },
   };
 };

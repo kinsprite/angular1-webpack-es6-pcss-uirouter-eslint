@@ -39,6 +39,7 @@ module.exports = function webpackDistConf(env) {
       path: path.join(process.cwd(), conf.paths.dist),
       filename: '[name]-[chunkhash].js',
       chunkFilename: '[name].[chunkhash].js',
+      libraryTarget: 'umd',
     },
     performance: {
       hints: 'error',

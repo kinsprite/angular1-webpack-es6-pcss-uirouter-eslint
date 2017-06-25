@@ -19,6 +19,7 @@ module.exports = function webpackDevConf(env) {
       path: path.join(process.cwd(), conf.paths.tmp),
       filename: '[name].js',
       chunkFilename: '[name].js',
+      libraryTarget: 'umd',
     },
     performance: {
       hints: false,
