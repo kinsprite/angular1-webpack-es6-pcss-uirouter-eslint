@@ -1,4 +1,4 @@
-
+import angular from 'angular';
 import L from 'leaflet';
 
 function leafletGisMapDirective() {
@@ -16,14 +16,28 @@ function leafletGisMapDirective() {
         const tile = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
 
         // add a marker in the given location, attach some popup content to it and open the popup
-        const pos = {
-            EPSG: L.latLng(51.5, -0.09),
-            EPSGCenter: L.latLng(51.5, -0.09),
-            simple: L.latLng(300, 400),
-            simpleCenter: L.latLng(350, 400),
+        const centerPt = {
+            EPSG: L.latLng(30.5, 114.09),
+            simple: L.latLng(350, 400),
         };
 
-        const marker = L.Marker.movingMarker([pos.EPSG]).addTo(map);
+        // map.setView(centerPt.EPSG, 13);
+
+        const posInit = [{
+            EPSG: L.latLng(30.505, 114.096),
+            simple: L.latLng(300, 350),
+        }, {
+            EPSG: L.latLng(30.495, 114.084),
+            simple: L.latLng(400, 450),
+        }];
+
+        const markers = [];
+
+        angular.forEach(posInit, (pos) => {
+            const marker = L.Marker.movingMarker([pos.EPSG]).addTo(map);
+            marker.pos4CRS = pos;
+            markers.push(marker);
+        });
 
         // L.circle([51.508, -0.11], {
         //     color: 'red',
@@ -38,32 +52,32 @@ function leafletGisMapDirective() {
         //     [51.51, -0.047],
         // ]).addTo(map);
 
-        const switchToSimple = () => {
-            tile.remove();
-            marker.remove();
-            const cpt = map.latLngToContainerPoint(marker.getLatLng());
-            map.options.crs = L.CRS.Simple;
-            map.setView(pos.simpleCenter).setZoom(2);
+        const switchCRS = () => {
+            isSimpleCRS = !isSimpleCRS;
 
-            const newPos = map.containerPointToLatLng(cpt);
-            marker.setLatLng(newPos);
-            marker.addTo(map);
+            if (isSimpleCRS) {
+                tile.remove();
+            }
 
-            marker.moveTo(pos.simple, 2000);
-        };
+            angular.forEach(markers, (marker) => {
+                const cpt = map.latLngToContainerPoint(marker.getLatLng());
+                marker.pos4CRS.cpt = cpt;
+            });
 
-        const switchToEPSG = () => {
-            marker.remove();
-            const cpt = map.latLngToContainerPoint(marker.getLatLng());
-            map.options.crs = L.CRS.EPSG3857;
-            tile.addTo(map);
+            if (isSimpleCRS) {
+                map.options.crs = L.CRS.Simple;
+                map.setView(centerPt.simple, 2);
+            } else {
+                map.options.crs = L.CRS.EPSG3857;
+                map.setView(centerPt.EPSG, 13);
+                tile.addTo(map);
+            }
 
-            map.setView(pos.EPSGCenter).setZoom(13);
-            const newPos = map.containerPointToLatLng(cpt);
-            marker.setLatLng(newPos);
-            marker.addTo(map);
-
-            marker.moveTo(pos.EPSG, 2000);
+            angular.forEach(markers, (marker) => {
+                const newPos = map.containerPointToLatLng(marker.pos4CRS.cpt);
+                marker.setLatLng(newPos);
+                marker.moveTo(isSimpleCRS ? marker.pos4CRS.simple : marker.pos4CRS.EPSG, 2000);
+            });
         };
 
         // on Destroy
@@ -72,13 +86,7 @@ function leafletGisMapDirective() {
         });
 
         scope.$on('gis.map.switchCRS', () => {
-            if (isSimpleCRS) {
-                switchToEPSG();
-                isSimpleCRS = false;
-            } else {
-                switchToSimple();
-                isSimpleCRS = true;
-            }
+            switchCRS();
         });
     }
 
