@@ -24,7 +24,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     // 'angular',
-    'airbnb',
+    'airbnb-base',
   ],
   rules: {
     /**

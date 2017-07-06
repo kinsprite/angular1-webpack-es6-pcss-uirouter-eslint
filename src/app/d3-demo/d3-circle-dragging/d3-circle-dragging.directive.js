@@ -10,8 +10,8 @@ function d3CircleDraggingDirective() {
         const container = element[0];
 
         const canvas = d3.select(container).append('canvas')
-                .property('width', scope.width)
-                .property('height', scope.height);
+            .property('width', scope.width)
+            .property('height', scope.height);
 
         const context = canvas.node().getContext('2d');
 
