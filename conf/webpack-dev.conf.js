@@ -20,6 +20,7 @@ module.exports = function webpackDevConf(env) {
       filename: '[name].js',
       chunkFilename: '[name].js',
       libraryTarget: 'umd',
+      umdNamedDefine: true,
     },
     performance: {
       hints: false,

@@ -12,6 +12,8 @@ const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 const InlineManifestJsonWebpackPlugin = require('./inline-manifest-json.webpack.plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
 // const pkg = require('../package.json');
 const stylelintOptions = require('./stylelint-options.conf');
@@ -187,6 +189,14 @@ module.exports = function webpackBaseConf(env) {
             : false,
           template: conf.path.src('index.ejs'),
         }),
+        new HtmlWebpackIncludeAssetsPlugin({
+          assets: [
+            'lib/3rd/bootstrap/3.3.7/css/bootstrap.min.css',
+            'lib/3rd/bootstrap/3.3.7/css/bootstrap-theme.min.css',
+            'lib/3rd/bootstrap/3.3.7/js/bootstrap.min.js',
+          ],
+          append: false,
+        }),
         new ExtractTextPlugin({
           // CSS chunk 不可以导出到 output.path 的其它位置, 否则, 找不到 css url() 中的图片位置
           filename: isProduction() ? '[name]-[contenthash].css' : '[name].css',
@@ -201,6 +211,7 @@ module.exports = function webpackBaseConf(env) {
           manifestJsonVariable: 'webpackManifestJson',
         }),
         new DuplicatePackageCheckerPlugin(),
+        new ManifestPlugin(),
         new webpack.LoaderOptionsPlugin({
           debug: !isProduction(),
         }),

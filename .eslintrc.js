@@ -180,8 +180,7 @@ module.exports = {
             '**/*.spec.js',
             'gulpfile.js',
             'gulp_tasks/*.js',
-            'conf/*.conf.js',
-            'conf/*.plugin.js',
+            'conf/**/*.js',
         ]}],
 
     /**

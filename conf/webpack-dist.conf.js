@@ -40,6 +40,7 @@ module.exports = function webpackDistConf(env) {
       filename: '[name]-[chunkhash].js',
       chunkFilename: '[name].[chunkhash].js',
       libraryTarget: 'umd',
+      umdNamedDefine: true,
     },
     performance: {
       hints: 'error',

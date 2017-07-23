@@ -7,6 +7,15 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Gulp pkg:deploy",
+            "program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
+            "args": [
+                "pkg:deploy"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Gulp browsersync:dist",
             "program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
             "args": [
