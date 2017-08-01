@@ -9,9 +9,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const conf = require('./gulp.conf');
 
 module.exports = function webpackCopyConf(env) {
-  function isProduction() {
-    return (env.name === conf.webpackEnv.dist.name);
-  }
+  // function isProduction() {
+  //   return (env.name === conf.webpackEnv.dist.name);
+  // }
 
   return {
     plugins: [

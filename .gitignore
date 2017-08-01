@@ -3,3 +3,6 @@
 /coverage/
 /dist/
 /node_modules/
+/.out.eslint.html
+/.out.stylelint.txt
+/.out.htmlhint.txt
