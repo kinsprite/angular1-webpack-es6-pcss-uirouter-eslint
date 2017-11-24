@@ -20,6 +20,9 @@ module.exports = function () {
         conf.paths.tmp,
         conf.paths.src,
       ],
+      routes: {
+        '/netstar/mysite': '../',
+      },
     },
     open: false,
     middleware: [

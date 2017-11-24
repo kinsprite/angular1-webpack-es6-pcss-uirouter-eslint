@@ -5,7 +5,13 @@ class LoginState {
         this.$log = $log;
         this.logined = false;
     }
-
+    /**
+     *
+     *
+     * @param {any} logined
+     * @returns
+     * @memberof LoginState
+     */
     setLogined(logined) {
         this.logined = logined;
         return this;

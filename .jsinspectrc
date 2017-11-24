@@ -1,0 +1,10 @@
+{
+  "threshold":     30,
+  "identifiers":   true,
+  "literals":      true,
+  "color":         true,
+  "minInstances":  2,
+  "ignore":        "test|spec|mock|mocks|.git|.idea|.tmp|dist",
+  "reporter":      "default",
+  "truncate":      100
+}

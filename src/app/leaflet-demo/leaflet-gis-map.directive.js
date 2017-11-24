@@ -4,11 +4,12 @@ import L from 'leaflet';
 function leafletGisMapDirective() {
     function link(scope, element /* , attrs */) {
         const container = element[0];
+        const wuhan = [51.505, -0.09];
 
         // create a map in the div, set the view to a given place and zoom
         const map = L.map(container, {
             renderer: L.canvas(),
-        }).setView([51.505, -0.09], 13);
+        }).setView(wuhan, 13);
 
         let isSimpleCRS = false;
 
