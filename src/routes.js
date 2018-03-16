@@ -26,8 +26,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('app.mockApiNCssModule', {
             url: 'mock-api-n-css-module',
             template: '<mock-api-n-css-module></mock-api-n-css-module>',
-        })
-    ;
+        });
 }
 
 export default routesConfig;

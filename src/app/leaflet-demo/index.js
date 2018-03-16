@@ -13,7 +13,6 @@ angular.module(moduleName, [])
         template: htmlTmpl,
         controller: LeafletDemoCtrl,
         controllerAs: '$ctrl',
-    })
-;
+    });
 
 export default moduleName;

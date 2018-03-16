@@ -14,7 +14,6 @@ angular.module(moduleName, [])
         template: htmlTmpl,
         controller: D3DemoCtrl,
         controllerAs: '$ctrl',
-    })
-;
+    });
 
 export default moduleName;

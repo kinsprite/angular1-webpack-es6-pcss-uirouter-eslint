@@ -7,7 +7,6 @@ const moduleName = 'home';
 angular.module(moduleName, [])
     .component('home', {
         template: htmlTmpl,
-    })
-;
+    });
 
 export default moduleName;

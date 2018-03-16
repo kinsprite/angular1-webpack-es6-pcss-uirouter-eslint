@@ -1,8 +1,10 @@
 
 .main-container {
-    /* display: flex; */
-    /* flex-direction: column; */
-    min-height: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .main-header {
@@ -42,7 +44,22 @@
     background-image: url("assets/images/webpack.png");
 }
 
-.main-content {
+.main-body {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-leftside {
+    width: 210px;
+    height: 100%;
+    background-color: rebeccapurple;
     position: relative;
-    min-height: calc(100vh - $nav-height);
+}
+
+.main-content {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    // min-height: calc(100vh - $nav-height);
 }

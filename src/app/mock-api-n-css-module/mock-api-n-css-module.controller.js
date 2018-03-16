@@ -14,12 +14,19 @@ class MackAppCtrl {
     }
 
     initUsers() {
-        this.$http.get('/rest/users').then(response => (this.users = response.data));
-        this.$http.get('/rest/users/admin').then(response => (this.admins = response.data));
+        this.$http.get('/rest/users').then((response) => {
+            this.users = response.data;
+        });
+
+        this.$http.get('/rest/users/admin').then((response) => {
+            this.admins = response.data;
+        });
     }
 
     initBooks() {
-        this.$http.get('/rest/books').then(response => (this.books = response.data));
+        this.$http.get('/rest/books').then((response) => {
+            this.books = response.data;
+        });
     }
 
     addBook(name, price) {

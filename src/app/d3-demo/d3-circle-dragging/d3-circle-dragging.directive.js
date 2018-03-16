@@ -18,8 +18,7 @@ function d3CircleDraggingDirective() {
         const width = canvas.property('width');
         const height = canvas.property('height');
         const circles = scope.data;
-        const radius = scope.radius;
-
+        const { radius } = scope;
 
         const color = d3.scaleOrdinal()
             .range(d3.schemeCategory20);

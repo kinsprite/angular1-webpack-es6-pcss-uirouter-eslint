@@ -1,5 +1,5 @@
 import angular from 'angular';
-import 'angular-ui-router';
+import '@uirouter/angularjs';
 
 import './lib/third-party/Leaflet.MovingMarker/MovingMarker';
 

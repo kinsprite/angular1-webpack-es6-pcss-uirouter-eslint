@@ -2632,6 +2632,12 @@ domutils@1.5, domutils@1.5.1:
     dom-serializer "0"
     domelementtype "1"
 
+dot-prop@^4.1.1:
+  version "4.2.0"
+  resolved "http://registry.npm.taobao.org/dot-prop/download/dot-prop-4.2.0.tgz#1f19e0c2e1aa0e32797c49799f2837ac6af69c57"
+  dependencies:
+    is-obj "^1.0.0"
+
 dummy-json@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/dummy-json/download/dummy-json-1.0.1.tgz#8a827229ef4e16a64d41baa2e721b14e5a96a5da"
@@ -4517,6 +4523,10 @@ is-number@^2.0.2, is-number@^2.1.0:
   dependencies:
     kind-of "^3.0.2"
 
+is-obj@^1.0.0:
+  version "1.0.1"
+  resolved "http://registry.npm.taobao.org/is-obj/download/is-obj-1.0.1.tgz#3e4729ac1f5fde025cd7d83a896dab9f4f67db0f"
+
 is-path-cwd@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/is-path-cwd/download/is-path-cwd-1.0.0.tgz#d225ec23132e89edd38fda767472e62e65f1106d"
@@ -5346,7 +5356,7 @@ lodash@3.7.x:
   version "3.7.0"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-3.7.0.tgz#3678bd8ab995057c07ade836ed2ef087da811d45"
 
-lodash@4.17.4, "lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.0.1, lodash@^4.1.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.0, lodash@^4.5.1:
+lodash@4.17.4, "lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.0.1, lodash@^4.1.0, lodash@^4.14.0, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.0, lodash@^4.5.1:
   version "4.17.4"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -7022,6 +7032,14 @@ postcss-selector-parser@^2.2.2, postcss-selector-parser@^2.2.3:
     indexes-of "^1.0.1"
     uniq "^1.0.1"
 
+postcss-selector-parser@^3.1.1:
+  version "3.1.1"
+  resolved "http://registry.npm.taobao.org/postcss-selector-parser/download/postcss-selector-parser-3.1.1.tgz#4f875f4afb0c96573d5cf4d74011aee250a7e865"
+  dependencies:
+    dot-prop "^4.1.1"
+    indexes-of "^1.0.1"
+    uniq "^1.0.1"
+
 postcss-simple-vars@^4.0.0:
   version "4.0.0"
   resolved "http://registry.npm.taobao.org/postcss-simple-vars/download/postcss-simple-vars-4.0.0.tgz#d49e082897d9a4824f2268fa91d969d943e2ea76"
@@ -8338,16 +8356,15 @@ stylelint-rscss@^0.4.0:
     postcss-resolve-nested-selector "0.1.1"
     postcss-selector-parser "2.2.1"
 
-stylelint-scss@^1.4.4:
-  version "1.4.4"
-  resolved "http://registry.npm.taobao.org/stylelint-scss/download/stylelint-scss-1.4.4.tgz#091fcbd8b648c78ec3899853e54b975e0256cd4a"
+stylelint-scss@^2.2.0:
+  version "2.2.0"
+  resolved "http://registry.npm.taobao.org/stylelint-scss/download/stylelint-scss-2.2.0.tgz#3e324bf13346db7af21cd24ad57fe3202f7c3823"
   dependencies:
-    lodash "^4.11.1"
+    lodash "^4.17.4"
     postcss-media-query-parser "^0.2.3"
     postcss-resolve-nested-selector "^0.1.1"
-    postcss-selector-parser "^2.0.0"
+    postcss-selector-parser "^3.1.1"
     postcss-value-parser "^3.3.0"
-    stylelint "^7.0.3"
 
 stylelint-webpack-plugin@^0.8.0:
   version "0.8.0"
@@ -8359,7 +8376,7 @@ stylelint-webpack-plugin@^0.8.0:
     ramda "^0.24.1"
     stylelint "^7.7.0"
 
-stylelint@^7.0.3, stylelint@^7.11.0, stylelint@^7.6.0, stylelint@^7.7.0:
+stylelint@^7.11.0, stylelint@^7.6.0, stylelint@^7.7.0:
   version "7.11.0"
   resolved "http://registry.npm.taobao.org/stylelint/download/stylelint-7.11.0.tgz#4816372ecd0afd2c30fe53f4f6a00eb04960dbfc"
   dependencies:

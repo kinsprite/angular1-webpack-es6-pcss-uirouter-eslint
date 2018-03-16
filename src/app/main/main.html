@@ -13,8 +13,10 @@
     </nav>
     <div class="main-body">
         <aside class="main-leftside">
+            <ui-view name="aside"></ui-view>
         </aside>
-        <article class="main-content" ui-view="">
+        <article class="main-content">
+            <ui-view></ui-view>
         </article>
     </div>
 </div>

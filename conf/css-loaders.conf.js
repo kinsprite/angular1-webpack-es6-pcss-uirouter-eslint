@@ -9,8 +9,7 @@ let spriteCount = 0;
 
 // postcss-sprite 被调用多次，需使用不同的文件名
 function makeSpritesheetPath(opts, spritesheet) {
-  const groups = spritesheet.groups;
-  const extension = spritesheet.extension;
+  const { groups, extension } = spritesheet;
   const prefix = `sprite-${spriteCount}`;
   spriteCount += 1;
 
@@ -30,28 +29,27 @@ function getPostcssPlugins(usePreCSS, useAssets, useSprites, spriteDir) {
         },
       }),
       require('postcss-math')({ functionName: 'mathcalc' }), // 必需给函数名，否则与 assets 的 resolve() 冲突
-      require('postcss-utilities'));
+      require('postcss-utilities'),
+    );
   }
 
   if (useAssets) {
-    plugins.push(
-      require('postcss-assets')({
-        basePath: conf.path.src(),
-        loadPaths: assetsLoadPaths,
-        relative: true, // 使用相对路径，让 sprites 查找到文件
-      }));
+    plugins.push(require('postcss-assets')({
+      basePath: conf.path.src(),
+      loadPaths: assetsLoadPaths,
+      relative: true, // 使用相对路径，让 sprites 查找到文件
+    }));
   }
 
   // *** sprites ***
   if (useSprites) {
-    plugins.push(
-      require('postcss-sprites')({
-        spritePath: `./${conf.path.tmp(spriteDir)}`,
-        relativeTo: 'file', // 使用相对路径，让 file-loader 查找到文件
-        hooks: {
-          onSaveSpritesheet: makeSpritesheetPath,
-        },
-      }));
+    plugins.push(require('postcss-sprites')({
+      spritePath: `./${conf.path.tmp(spriteDir)}`,
+      relativeTo: 'file', // 使用相对路径，让 file-loader 查找到文件
+      hooks: {
+        onSaveSpritesheet: makeSpritesheetPath,
+      },
+    }));
   }
 
   plugins.push(
@@ -60,7 +58,8 @@ function getPostcssPlugins(usePreCSS, useAssets, useSprites, spriteDir) {
     require('postcss-cssnext'),
     require('doiuse'),
     require('postcss-browser-reporter'),
-    require('postcss-reporter'));
+    require('postcss-reporter'),
+  );
 
   return plugins;
 }

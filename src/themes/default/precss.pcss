@@ -1,0 +1,82 @@
+$blue: #056ef0;
+$column: 200px;
+
+.menu {
+    width: calc(4 * $column);
+}
+
+.menu_link {
+    background: color-mod($blue alpha(90%));
+    width: $column;
+}
+
+@custom-media --viewport-medium (width <= 50rem);
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+%thick-border {
+    border: thick dotted red;
+}
+
+.serious-modal {
+    font-style: normal;
+    font-weight: bold;
+
+    @media (max-width: 240px) {
+        @extend .modal:hover;
+    }
+}
+
+.modal {
+    @extend %thick-border;
+
+    color: red;
+}
+
+.modal:hover:not(:focus) {
+    outline: none;
+}
+
+
+$dir: assets/icons;
+
+@each $icon in (foo, bar, baz) {
+    .icon-$icon {
+        background: url('$dir/$icon.png');
+    }
+}
+
+@for $count from 1 to 5 by 2 {
+    @if $count > 2 {
+        .col-$count {
+            /* stylelint-disable-next-line */
+            /* width: #{$count}0%; */
+        }
+    }
+}
+
+
+.Test {
+    margin-left: 20px;
+    margin-right: @margin-left;
+    color: red;
+    background: @color url('test.png');
+    line-height: 1.5;
+    font-size: @(line-height)em;
+}
+
+.phone {
+    &_title {
+        width: 500px;
+        @media (max-width: 500px) {
+            width: auto;
+        }
+
+        body.is_dark & {
+            color: white;
+        }
+    }
+
+    img {
+        display: block;
+    }
+}

@@ -10,7 +10,6 @@ angular.module(moduleName, [])
         template: htmlTmpl,
         controller: MainCtrl,
         controllerAs: '$ctrl',
-    })
-;
+    });
 
 export default moduleName;

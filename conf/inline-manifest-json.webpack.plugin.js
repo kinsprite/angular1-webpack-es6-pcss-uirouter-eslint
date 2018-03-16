@@ -20,7 +20,7 @@ InlineManifestJsonPlugin.prototype.apply = function pluginApply(compiler) {
 
   compiler.plugin('compilation', (compilation) => {
     compilation.plugin('html-webpack-plugin-before-html-generation', (htmlPluginData, callback) => {
-      const filename = self.options.filename;
+      const { filename } = self.options;
 
       const webpackManifestJson = [];
       const htmlPlugnAssets = htmlPluginData.assets;

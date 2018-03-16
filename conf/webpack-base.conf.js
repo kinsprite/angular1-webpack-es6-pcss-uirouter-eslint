@@ -215,10 +215,9 @@ module.exports = function webpackBaseConf(env) {
         new webpack.LoaderOptionsPlugin({
           debug: !isProduction(),
         }),
-        new StylelintWebpackPlugin(
-          assign({
-            files: ['**/*.?(p|s)css'],
-          }, stylelintOptions.scss)),
+        new StylelintWebpackPlugin(assign({
+          files: ['**/*.?(p|s)css'],
+        }, stylelintOptions.scss)),
         new webpack.ProvidePlugin({
           // ***
           // *** Webpack碰到全局变量 $ 时, 查找到指定的模块 'jquery'
@@ -231,18 +230,17 @@ module.exports = function webpackBaseConf(env) {
 
       // Test 时，不可使用 CommonsChunkPlugin, 否则找不到 webpackJsonp
       if (!isTestArg) {
-        plugins.push(
-          new webpack.optimize.CommonsChunkPlugin({
-            // 必需 reverse() 才能确 HTML template 中加载 script 次序正确
-            name: [
-              // 公共 chunk ，不应添加 app entries
-              'manifest', 'babel-polyfill', 'vendor-base', 'vendor-angular', 'vendor-ui-router', 'vendor-ng-ui',
-              'vendor-leaflet', 'vendor-d3',
-            ].reverse(),
-            // js chunk 可以导出到 output.path 的其它位置, 但造成 require.ensure 加载时找不到文件。
-            filename: isProduction() ? '[name]-[chunkhash].js' : '[name].js',
-            minChunks: Infinity,
-          }));
+        plugins.push(new webpack.optimize.CommonsChunkPlugin({
+          // 必需 reverse() 才能确 HTML template 中加载 script 次序正确
+          name: [
+            // 公共 chunk ，不应添加 app entries
+            'manifest', 'babel-polyfill', 'vendor-base', 'vendor-angular', 'vendor-ui-router', 'vendor-ng-ui',
+            'vendor-leaflet', 'vendor-d3',
+          ].reverse(),
+          // js chunk 可以导出到 output.path 的其它位置, 但造成 require.ensure 加载时找不到文件。
+          filename: isProduction() ? '[name]-[chunkhash].js' : '[name].js',
+          minChunks: Infinity,
+        }));
       }
 
       return plugins;

@@ -1,13 +1,15 @@
-{
+
+module.exports = {
   "extends": [
     "stylelint-config-standard"
   ],
   "plugins": [
-    "stylelint-order"
+    "stylelint-order",
+    "stylelint-scss"
   ],
   "rules": {
     "indentation": 4,
-    "at-rule-empty-line-before": [ "always", {
+    "at-rule-empty-line-before": ["always", {
       "except": [
         "after-same-name",
         "blockless-after-same-name-blockless",
@@ -16,6 +18,12 @@
       ],
       "ignore": ["after-comment", "inside-block"],
       "severity": "warning"
+    }],
+    "at-rule-no-unknown": [true, {
+      "ignoreAtRules": [
+        "extend", "each", "for", "if", "else",
+        "mixin", "include", "content", "at-root"
+        ]
     }],
     "comment-empty-line-before": ["always", {
       "except": ["first-nested"],
@@ -32,6 +40,7 @@
       "declarations",
       "rules"
     ],
-    "order/properties-order": null
+    "order/properties-order": null,
+    // "scss/at-rule-no-unknown": true
   }
-}
+};

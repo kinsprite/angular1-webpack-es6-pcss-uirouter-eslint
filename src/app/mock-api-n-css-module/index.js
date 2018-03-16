@@ -12,7 +12,6 @@ angular.module(moduleName, [])
         template: htmlTmpl,
         controller: MackAppCtrl,
         controllerAs: '$ctrl',
-    })
-;
+    });
 
 export default moduleName;
