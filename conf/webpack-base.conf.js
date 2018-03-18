@@ -191,9 +191,9 @@ module.exports = function webpackBaseConf(env) {
         }),
         new HtmlWebpackIncludeAssetsPlugin({
           assets: [
-            'lib/3rd/bootstrap/3.3.7/css/bootstrap.min.css',
-            'lib/3rd/bootstrap/3.3.7/css/bootstrap-theme.min.css',
-            'lib/3rd/bootstrap/3.3.7/js/bootstrap.min.js',
+            // 'lib/3rd/bootstrap/3.3.7/css/bootstrap.min.css',
+            // 'lib/3rd/bootstrap/3.3.7/css/bootstrap-theme.min.css',
+            // 'lib/3rd/bootstrap/3.3.7/js/bootstrap.min.js',
           ],
           append: false,
         }),
@@ -274,6 +274,11 @@ module.exports = function webpackBaseConf(env) {
     },
     externals: {
       // 'babel-polyfill': 'babel-polyfill',
+      '@uirouter/angularjs': {
+        commonjs: 'angular-animate',
+        commonjs2: 'angular-animate',
+        amd: 'angular-animate',
+      },
       angular: 'angular',
       d3: 'd3',
       'angular-animate': {
