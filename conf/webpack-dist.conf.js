@@ -8,7 +8,7 @@ const os = require('os');
 
 const WebpackChunkHash = require('webpack-chunk-hash');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
-const UglifyJsParallelPlugin = require('webpack-uglify-parallel');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const conf = require('./gulp.conf');
 const baseConfig = require('./webpack-base.conf');
@@ -20,13 +20,9 @@ module.exports = function webpackDistConf(env) {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(conf.webpackEnv.dist.name),
       }),
-      new UglifyJsParallelPlugin({
-        // usually having as many workers as cpu cores gives good results
-        workers: os.cpus().length,
-        // other uglify options
+      new UglifyJsPlugin({
+        parallel: true,
         sourceMap: true,
-        compress: { unused: true, dead_code: true, warnings: false }, // eslint-disable-line camelcase
-        comments: false, // remove all comments
       }),
       new webpack.HashedModuleIdsPlugin(),
       new WebpackChunkHash(),
