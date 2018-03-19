@@ -7,7 +7,7 @@ const baseConfig = require('./webpack-base.conf');
 const copyConfig = require('./webpack-copy.conf');
 
 module.exports = function webpackTestConf(env) {
-  return webpackMerge(baseConfig(env), copyConfig(env), {
+  return Object.assign(webpackMerge(baseConfig(env), copyConfig(env), {
     plugins: [
       new webpack.NamedModulesPlugin(),
     ],
@@ -23,5 +23,7 @@ module.exports = function webpackTestConf(env) {
       maxEntrypointSize: 3200000,
       maxAssetSize: 500000,
     },
+  }), {
+    externals: {},
   });
 };

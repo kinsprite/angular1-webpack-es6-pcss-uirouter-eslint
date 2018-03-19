@@ -3,6 +3,8 @@
 
 const conf = require('./gulp.conf');
 
+process.env.CHROME_BIN = require('puppeteer').executablePath();
+
 module.exports = function (config) {
   const configuration = {
     basePath: '../',
@@ -11,7 +13,7 @@ module.exports = function (config) {
       outputDir: 'test-reports',
     },
     browsers: [
-      'PhantomJS',
+      'ChromeHeadless',
     ],
     frameworks: [
       'jasmine',
@@ -45,8 +47,7 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-junit-reporter'),
       require('karma-coverage'),
-      require('karma-phantomjs-launcher'),
-      require('karma-phantomjs-shim'),
+      require('karma-chrome-launcher'),
       require('karma-ng-html2js-preprocessor'),
       require('karma-webpack'),
     ],
