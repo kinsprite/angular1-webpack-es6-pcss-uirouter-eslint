@@ -1,5 +1,8 @@
 import angular from 'angular';
 import 'angular-mocks';
+
+import { expect, assert } from 'chai';
+
 import header from './header';
 
 describe('header component', () => {
@@ -14,6 +17,6 @@ describe('header component', () => {
         const element = $compile('<fountain-header></fountain-header>')($rootScope);
         $rootScope.$digest();
         const headerElem = element.find('a');
-        expect(headerElem.html().trim()).toEqual('Fountain Generator');
+        expect(headerElem.html().trim()).to.be.equal('Fountain Generator');
     }));
 });

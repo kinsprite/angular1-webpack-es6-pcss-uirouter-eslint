@@ -1,5 +1,8 @@
 import angular from 'angular';
 import 'angular-mocks';
+
+import { expect, assert } from 'chai';
+
 import footer from './footer';
 
 describe('footer component', () => {
@@ -14,6 +17,6 @@ describe('footer component', () => {
         const element = $compile('<fountain-footer></fountain-footer>')($rootScope);
         $rootScope.$digest();
         const footerElem = element.find('a');
-        expect(footerElem.html().trim()).toEqual('FountainJS team');
+        expect(footerElem.html().trim()).to.be.equal('FountainJS team');
     }));
 });

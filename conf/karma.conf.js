@@ -16,7 +16,9 @@ module.exports = function (config) {
       'ChromeHeadless',
     ],
     frameworks: [
-      'jasmine',
+      'mocha',
+      'chai',
+      'sinon',
     ],
     files: [
       'node_modules/es6-shim/es6-shim.js',
@@ -34,7 +36,7 @@ module.exports = function (config) {
     ngHtml2JsPreprocessor: {
       stripPrefix: `${conf.paths.src}/`,
     },
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'mocha', 'coverage'],
     coverageReporter: {
       type: 'html',
       dir: 'coverage/',
@@ -44,7 +46,10 @@ module.exports = function (config) {
       noInfo: true,
     },
     plugins: [
-      require('karma-jasmine'),
+      require('karma-mocha'),
+      require('karma-chai'),
+      require('karma-sinon'),
+      require('karma-mocha-reporter'),
       require('karma-junit-reporter'),
       require('karma-coverage'),
       require('karma-chrome-launcher'),
