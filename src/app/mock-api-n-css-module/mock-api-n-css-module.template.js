@@ -1,6 +1,6 @@
 import css from './mock-api-n-css-module.pcss';
 
-export default `<div>Hello CSS Module</div>
+export default /* html */ `<div>Hello CSS Module</div>
 
 <h2>Users</h2>
 

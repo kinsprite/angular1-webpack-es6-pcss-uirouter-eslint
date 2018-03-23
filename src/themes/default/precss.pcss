@@ -17,6 +17,20 @@ $column: 200px;
     border: thick dotted red;
 }
 
+.modal {
+    @extend %thick-border;
+
+    color: goldenrod;
+}
+
+.modal:hover {
+    color: red;
+}
+
+.modal:hover:not(:focus) {
+    outline: none;
+}
+
 .serious-modal {
     font-style: normal;
     font-weight: bold;
@@ -25,17 +39,6 @@ $column: 200px;
         @extend .modal:hover;
     }
 }
-
-.modal {
-    @extend %thick-border;
-
-    color: red;
-}
-
-.modal:hover:not(:focus) {
-    outline: none;
-}
-
 
 $dir: assets/icons;
 
