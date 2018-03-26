@@ -166,9 +166,20 @@ module.exports = function webpackBaseConf(env) {
         },
         {
           test: /\.html$/,
-          use: [
-            'html-loader',
-          ],
+          use: [{
+            loader: 'html-loader',
+            options: {
+              interpolate: 'true',
+              minimize: isProduction(),
+              caseSensitive: false,
+              collapseWhitespace: true,
+              conservativeCollapse: false,
+              decodeEntities: true,
+              html5: true,
+              minifyJS: true,
+              minifyCSS: true,
+            },
+          }],
         },
         {
           test: /\.modernizrrc.js$/,
