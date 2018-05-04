@@ -3,8 +3,8 @@ import angular from 'angular';
 
 import MackAppCtrl from './mock-api-n-css-module.controller';
 import htmlTmpl from './mock-api-n-css-module.template';
-import css from './mock-api-n-css-module.pcss';
-import html2 from './html2.html';
+import './mock-api-n-css-module.pcss';
+// import html2 from './html2.html';
 
 const moduleName = 'mock-api-n-css-module';
 
@@ -17,4 +17,4 @@ angular.module(moduleName, [])
 
 export default moduleName;
 
-console.log(html2);
+// console.log(html2);
