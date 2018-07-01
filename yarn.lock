@@ -289,19 +289,19 @@ amqplib@^0.5.2:
     readable-stream "1.x >=1.1.9"
     safe-buffer "^5.0.1"
 
-angular-animate@^1.6.9:
+angular-animate@^1.6.10:
   version "1.6.10"
   resolved "http://registry.npm.taobao.org/angular-animate/download/angular-animate-1.6.10.tgz#c520f6d341370e34e0a62060c99bcf47b7d7db8c"
 
-angular-cookies@^1.6.9:
+angular-cookies@^1.6.10:
   version "1.6.10"
   resolved "http://registry.npm.taobao.org/angular-cookies/download/angular-cookies-1.6.10.tgz#20a014d501242e2edacd21397c0e5480e08dee00"
 
-angular-mocks@^1.6.9:
+angular-mocks@^1.6.10:
   version "1.6.10"
   resolved "http://registry.npm.taobao.org/angular-mocks/download/angular-mocks-1.6.10.tgz#6a139e43c461d0c9a5a1acebc91e63db16031176"
 
-angular-sanitize@^1.6.9:
+angular-sanitize@^1.6.10:
   version "1.6.10"
   resolved "http://registry.npm.taobao.org/angular-sanitize/download/angular-sanitize-1.6.10.tgz#635a362afb2dd040179f17d3a5455962b2c1918f"
 
@@ -315,7 +315,7 @@ angular-ui-bootstrap@^2.5.6:
   version "2.5.6"
   resolved "http://registry.npm.taobao.org/angular-ui-bootstrap/download/angular-ui-bootstrap-2.5.6.tgz#23937322ec641a6fbee16498cc32452aa199e7c5"
 
-"angular@>=1.2.26 <=1.6", angular@^1.6.9:
+"angular@>=1.2.26 <=1.6", angular@^1.6.10:
   version "1.6.10"
   resolved "http://registry.npm.taobao.org/angular/download/angular-1.6.10.tgz#eed3080a34d29d0f681ff119b18ce294e3f74826"
 
