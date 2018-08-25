@@ -10,6 +10,7 @@ module.exports = {
     $: true,
     jQuery: true,
   },
+  parser: 'babel-eslint',
   env: {
     browser: true,
     jasmine: true,

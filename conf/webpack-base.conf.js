@@ -2,18 +2,18 @@
 /* eslint global-require:"off" */
 
 const webpack = require('webpack');
-const conf = require('./gulp.conf');
 const path = require('path');
 const assign = require('object-assign');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
-const InlineManifestJsonWebpackPlugin = require('./inline-manifest-json.webpack.plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+const InlineManifestJsonWebpackPlugin = require('./inline-manifest-json.webpack.plugin');
+const conf = require('./gulp.conf');
 
 // const pkg = require('../package.json');
 const stylelintOptions = require('./stylelint-options.conf');
@@ -272,66 +272,66 @@ module.exports = function webpackBaseConf(env) {
       // *** 在目标 HTML 中以几个模块加载(js/css)
       // ***
       app: [`./${conf.path.src('index.pcss')}`, `./${conf.path.src('index')}`],
-      // 'babel-polyfill': ['babel-polyfill'],
-      // 'vendor': Object.keys(pkg.dependencies),
-      // 'vendor-base': ['jquery', 'bootstrap', 'bootstrap.css', 'animate.css'],
-      // 'vendor-angular': ['angular', 'angular-animate', 'angular-sanitize'],
-      // 'vendor-ui-router': ['angular-ui-router'],
-      // 'vendor-ng-ui': ['angular-translate', 'angular-ui-bootstrap'],
-      // 'vendor-leaflet': ['leaflet', 'leaflet.css'],
-      // 'vendor-d3': ['d3'],
+      'babel-polyfill': ['babel-polyfill'],
+      // vendor: Object.keys(pkg.dependencies),
+      'vendor-base': ['jquery', 'bootstrap', 'bootstrap.css', 'animate.css'],
+      'vendor-angular': ['angular', 'angular-animate', 'angular-sanitize'],
+      'vendor-ui-router': ['angular-ui-router'],
+      'vendor-ng-ui': ['angular-translate', 'angular-ui-bootstrap'],
+      'vendor-leaflet': ['leaflet', 'leaflet.css'],
+      'vendor-d3': ['d3'],
     },
     externals: {
       // 'babel-polyfill': 'babel-polyfill',
-      '@uirouter/angularjs': {
-        commonjs: 'angular-animate',
-        commonjs2: 'angular-animate',
-        amd: 'angular-animate',
-      },
-      angular: 'angular',
-      d3: 'd3',
-      'angular-animate': {
-        commonjs: 'angular-animate',
-        commonjs2: 'angular-animate',
-        amd: 'angular-animate',
-      },
-      'angular-sanitize': {
-        commonjs: 'angular-sanitize',
-        commonjs2: 'angular-sanitize',
-        amd: 'angular-sanitize',
-      },
-      'angular-ui-router': {
-        commonjs: 'angular-ui-router',
-        commonjs2: 'angular-ui-router',
-        amd: 'angular-ui-router',
-      },
-      'angular-translate': {
-        commonjs: 'angular-translate',
-        commonjs2: 'angular-translate',
-        amd: 'angular-translate',
-      },
-      'angular-ui-bootstrap': {
-        commonjs: 'angular-ui-bootstrap',
-        commonjs2: 'angular-ui-bootstrap',
-        amd: 'angular-ui-bootstrap',
-      },
-      bootstrap: {
-        commonjs: 'bootstrap',
-        commonjs2: 'bootstrap',
-        amd: 'bootstrap',
-      },
-      jquery: {
-        commonjs: 'jquery',
-        commonjs2: 'jquery',
-        amd: 'jquery',
-        root: 'jQuery',
-      },
-      leaflet: {
-        commonjs: 'leaflet',
-        commonjs2: 'leaflet',
-        amd: 'leaflet',
-        root: 'L',
-      },
+      // '@uirouter/angularjs': {
+      //   commonjs: 'angular-animate',
+      //   commonjs2: 'angular-animate',
+      //   amd: 'angular-animate',
+      // },
+      // angular: 'angular',
+      // d3: 'd3',
+      // 'angular-animate': {
+      //   commonjs: 'angular-animate',
+      //   commonjs2: 'angular-animate',
+      //   amd: 'angular-animate',
+      // },
+      // 'angular-sanitize': {
+      //   commonjs: 'angular-sanitize',
+      //   commonjs2: 'angular-sanitize',
+      //   amd: 'angular-sanitize',
+      // },
+      // 'angular-ui-router': {
+      //   commonjs: 'angular-ui-router',
+      //   commonjs2: 'angular-ui-router',
+      //   amd: 'angular-ui-router',
+      // },
+      // 'angular-translate': {
+      //   commonjs: 'angular-translate',
+      //   commonjs2: 'angular-translate',
+      //   amd: 'angular-translate',
+      // },
+      // 'angular-ui-bootstrap': {
+      //   commonjs: 'angular-ui-bootstrap',
+      //   commonjs2: 'angular-ui-bootstrap',
+      //   amd: 'angular-ui-bootstrap',
+      // },
+      // bootstrap: {
+      //   commonjs: 'bootstrap',
+      //   commonjs2: 'bootstrap',
+      //   amd: 'bootstrap',
+      // },
+      // jquery: {
+      //   commonjs: 'jquery',
+      //   commonjs2: 'jquery',
+      //   amd: 'jquery',
+      //   root: 'jQuery',
+      // },
+      // leaflet: {
+      //   commonjs: 'leaflet',
+      //   commonjs2: 'leaflet',
+      //   amd: 'leaflet',
+      //   root: 'L',
+      // },
     },
   };
 };

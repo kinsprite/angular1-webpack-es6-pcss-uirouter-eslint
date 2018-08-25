@@ -1,10 +1,9 @@
 {
-  "plugins": [[
-    "transform-runtime", {
-      "helpers": false,
-      "polyfill": true,
-      "regenerator": true
-    }]
+  "plugins": [
+    "syntax-dynamic-import",
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    "transform-async-generator-functions"
   ],
   "presets": [
     "env"

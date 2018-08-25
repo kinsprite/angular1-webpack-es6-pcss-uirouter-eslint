@@ -1,6 +1,6 @@
 /** @ngInject */
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
-    $locationProvider.html5Mode(false); // .hashPrefix('!');
+    $locationProvider.html5Mode(false).hashPrefix('!');
 
     $urlRouterProvider
         .when('/', '/home')
@@ -10,22 +10,24 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('app', {
             url: '/',
             template: '<main></main>',
+            component: 'main',
         })
         .state('app.home', {
             url: 'home',
+            component: 'home',
             template: '<home></home>',
         })
         .state('app.leaflet', {
             url: 'leaflet',
-            template: '<leaflet-demo></leaflet-demo>',
+            component: 'leafletDemo',
         })
         .state('app.d3', {
             url: 'd3',
-            template: '<d3-demo></d3-demo>',
+            component: 'd3Demo',
         })
         .state('app.mockApiNCssModule', {
             url: 'mock-api-n-css-module',
-            template: '<mock-api-n-css-module></mock-api-n-css-module>',
+            component: 'mockApiNCssModule',
         });
 }
 

@@ -3,7 +3,7 @@
 
 const conf = require('./gulp.conf');
 
-process.env.CHROME_BIN = require('puppeteer').executablePath();
+process.env.CHROME_BIN = require('puppeteer-core').executablePath();
 
 module.exports = function (config) {
   const configuration = {

@@ -5,6 +5,7 @@ class LoginState {
         this.$log = $log;
         this.logined = false;
     }
+
     /**
      *
      *
@@ -20,6 +21,8 @@ class LoginState {
     getLogined() {
         return this.logined;
     }
+
+    static myV = 10;
 }
 
 export default LoginState;

@@ -3,11 +3,11 @@ import '@uirouter/angularjs';
 
 import './lib/third-party/Leaflet.MovingMarker/MovingMarker';
 
-import demoAppModule from './app/';
+import demoAppModule from './app';
 import routesConfig from './routes';
 
-import enUS from './i18n/en-US/';
-import zhCN from './i18n/zh-CN/';
+import enUS from './i18n/en-US';
+import zhCN from './i18n/zh-CN';
 
 
 angular

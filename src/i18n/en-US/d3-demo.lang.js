@@ -4,4 +4,5 @@ export default {
         KEY_1: 'Value 1',
         KEY_2: 'Value 2',
     },
+
 };

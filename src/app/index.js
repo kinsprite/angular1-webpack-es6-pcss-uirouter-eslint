@@ -1,11 +1,11 @@
 import angular from 'angular';
 
-import componentsModule from './components/';
-import mainModule from './main/';
-import homeModule from './home/';
+import componentsModule from './components';
+import mainModule from './main';
+import homeModule from './home';
 
-import d3DemoModule from './d3-demo/';
-import leafletDemoModule from './leaflet-demo/';
+import d3DemoModule from './d3-demo';
+import leafletDemoModule from './leaflet-demo';
 
 import mockApiCssModule from './mock-api-n-css-module';
 

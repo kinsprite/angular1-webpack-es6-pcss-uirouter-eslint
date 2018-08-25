@@ -42,15 +42,15 @@ function getPostcssPlugins(usePreCSS, useAssets, useSprites, spriteDir) {
   }
 
   // *** sprites ***
-  if (useSprites) {
-    plugins.push(require('postcss-sprites')({
-      spritePath: `./${conf.path.tmp(spriteDir)}`,
-      relativeTo: 'file', // 使用相对路径，让 file-loader 查找到文件
-      hooks: {
-        onSaveSpritesheet: makeSpritesheetPath,
-      },
-    }));
-  }
+  // if (useSprites) {
+  //   plugins.push(require('postcss-sprites')({
+  //     spritePath: `./${conf.path.tmp(spriteDir)}`,
+  //     relativeTo: 'file', // 使用相对路径，让 file-loader 查找到文件
+  //     hooks: {
+  //       onSaveSpritesheet: makeSpritesheetPath,
+  //     },
+  //   }));
+  // }
 
   plugins.push(
     require('postcss-strip-inline-comments'),
