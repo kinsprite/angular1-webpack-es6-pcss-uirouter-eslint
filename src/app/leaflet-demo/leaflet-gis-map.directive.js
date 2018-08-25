@@ -1,5 +1,6 @@
 import angular from 'angular';
 import L from 'leaflet';
+import '../../lib/third-party/Leaflet.MovingMarker/MovingMarker';
 
 function leafletGisMapDirective() {
     function link(scope, element /* , attrs */) {

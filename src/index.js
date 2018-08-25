@@ -1,7 +1,17 @@
-import angular from 'angular';
-import '@uirouter/angularjs';
+import 'babel-polyfill';
 
-import './lib/third-party/Leaflet.MovingMarker/MovingMarker';
+import 'jquery';
+import 'bootstrap';
+
+
+import angular from 'angular';
+import 'angular-animate';
+import 'angular-sanitize';
+
+import '@uirouter/angularjs';
+import 'angular-translate';
+import 'angular-ui-bootstrap';
+
 
 import demoAppModule from './app';
 import routesConfig from './routes';

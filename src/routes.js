@@ -9,13 +9,11 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
         .state('app', {
             url: '/',
-            template: '<main></main>',
             component: 'main',
         })
         .state('app.home', {
             url: 'home',
             component: 'home',
-            template: '<home></home>',
         })
         .state('app.leaflet', {
             url: 'leaflet',

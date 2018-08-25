@@ -187,7 +187,7 @@ module.exports = {
     /**
      * compat
      */
-    'compat/compat': 'error',
+    'compat/compat': 'off',
 
     /**
      * filenames

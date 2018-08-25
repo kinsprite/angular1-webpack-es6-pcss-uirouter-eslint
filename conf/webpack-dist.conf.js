@@ -8,7 +8,6 @@ const os = require('os');
 
 const WebpackChunkHash = require('webpack-chunk-hash');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const conf = require('./gulp.conf');
 const baseConfig = require('./webpack-base.conf');
@@ -16,14 +15,8 @@ const copyConfig = require('./webpack-copy.conf');
 
 module.exports = function webpackDistConf(env) {
   return webpackMerge(baseConfig(env), copyConfig(env), {
+    mode: 'production',
     plugins: [
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(conf.webpackEnv.dist.name),
-      }),
-      new UglifyJsPlugin({
-        parallel: true,
-        sourceMap: true,
-      }),
       new webpack.HashedModuleIdsPlugin(),
       new WebpackChunkHash(),
       new InlineManifestWebpackPlugin({

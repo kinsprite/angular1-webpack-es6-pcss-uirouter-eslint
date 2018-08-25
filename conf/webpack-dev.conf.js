@@ -11,8 +11,8 @@ const copyConfig = require('./webpack-copy.conf');
 
 module.exports = function webpackDevConf(env) {
   return webpackMerge(baseConfig(env), copyConfig(env), {
+    mode: 'development',
     plugins: [
-      new webpack.NamedModulesPlugin(),
     ],
     devtool: 'cheap-module-source-map',
     output: {
