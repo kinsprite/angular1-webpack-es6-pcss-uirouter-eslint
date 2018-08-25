@@ -21,7 +21,7 @@ function d3CircleDraggingDirective() {
         const { radius } = scope;
 
         const color = d3.scaleOrdinal()
-            .range(d3.schemeCategory20);
+            .range(d3.schemeCategory10);
 
         function render() {
             context.clearRect(0, 0, width, height);
