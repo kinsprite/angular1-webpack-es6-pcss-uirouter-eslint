@@ -11,29 +11,29 @@ const mapBooks = {
 
 // https://github.com/imrefazekas/connect-rest#rest-functions
 
-function getAllService(request, content, callback) {
-    return callback(null, books, { minify: true });
+async function getAllService(request, content) {
+    return books;
 }
 
-function getOneService(request, content, callback) {
-    return callback(null, mapBooks[request.parameters.bookId] || null, { minify: true });
+async function getOneService(request, content) {
+    return mapBooks[request.parameters.bookId] || null;
 }
 
-function putOneService(request, content, callback) {
+async function putOneService(request, content) {
     const book = mapBooks[parseInt(request.parameters.bookId, 10)];
 
     if (book && content) {
         const bookId = book.id;
         Object.assign(book, content, { id: bookId });
-        return callback(null, book);
+        return book;
     }
 
     const error = new Error('invalid parameters');
     error.statusCode = 417;
-    return callback(error);
+    throw error;
 }
 
-function postOneService(request, content, callback) {
+async function postOneService(request, content, callback) {
     if (content) {
         const len = books.length;
         const bookId = len ? books[len - 1].id + 1 : 0;
@@ -41,15 +41,15 @@ function postOneService(request, content, callback) {
         const book = Object.assign({}, content, { id: bookId });
         mapBooks[bookId] = book;
         books.push(book);
-        return callback(null, book);
+        return book;
     }
 
     const error = new Error('invalid parameters');
     error.statusCode = 417;
-    return callback(error);
+    throw error;
 }
 
-function deleteOneService(request, content, callback) {
+async function deleteOneService(request, content, callback) {
     const bookId = parseInt(request.parameters.bookId, 10);
 
     if (mapBooks[bookId]) {
@@ -57,12 +57,12 @@ function deleteOneService(request, content, callback) {
         delete mapBooks[bookId];
         books.splice(books.indexOf(book), 1);
 
-        return callback(null, { id: bookId });
+        return { id: bookId };
     }
 
     const error = new Error('invalid parameters');
     error.statusCode = 417;
-    return callback(error);
+    throw error;
 }
 
 function booksApi(rest) {

@@ -6,7 +6,7 @@ const options = {
   context: '/rest',
   logger: {
     file: './.tmp/rest-api.log',
-    level: 'debug',
+    // level: 'debug',
   },
 };
 
