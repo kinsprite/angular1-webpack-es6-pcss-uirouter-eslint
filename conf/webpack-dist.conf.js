@@ -19,20 +19,20 @@ module.exports = function webpackDistConf(env) {
     plugins: [
       new webpack.HashedModuleIdsPlugin(),
       new WebpackChunkHash(),
-      new InlineManifestWebpackPlugin({
-        name: 'webpackManifest',
-      }),
+      // new InlineManifestWebpackPlugin({
+      //   name: 'webpackManifest',
+      // }),
     ],
     devtool: 'source-map', // 'cheap-module-source-map' 会造成 js map 文件失效
     output: {
       path: path.join(process.cwd(), conf.paths.dist),
       filename: '[name]-[chunkhash].js',
       chunkFilename: '[name].[chunkhash].js',
-      libraryTarget: 'umd',
-      umdNamedDefine: true,
+      // libraryTarget: 'umd',
+      // umdNamedDefine: true,
     },
     performance: {
-      hints: 'error',
+      hints: 'warning',
       maxEntrypointSize: 3200000,
       maxAssetSize: 250000,
     },

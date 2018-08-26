@@ -210,14 +210,14 @@ module.exports = function webpackBaseConf(env) {
           filename: isProduction() ? '[name]-[contenthash].css' : '[name].css',
           chunkFilename: isProduction() ? '[id]-[contenthash].css' : '[id].css',
         }),
-        new ChunkManifestPlugin({
-          filename: 'chunk-manifest.json',
-          manifestVariable: 'webpackManifest',
-        }),
-        new InlineManifestJsonWebpackPlugin({
-          filename: 'chunk-manifest.json',
-          manifestJsonVariable: 'webpackManifestJson',
-        }),
+        // new ChunkManifestPlugin({
+        //   filename: 'chunk-manifest.json',
+        //   manifestVariable: 'webpackManifest',
+        // }),
+        // new InlineManifestJsonWebpackPlugin({
+        //   filename: 'chunk-manifest.json',
+        //   manifestJsonVariable: 'webpackManifestJson',
+        // }),
         new DuplicatePackageCheckerPlugin(),
         new ManifestPlugin(),
         // new webpack.LoaderOptionsPlugin({
@@ -255,6 +255,7 @@ module.exports = function webpackBaseConf(env) {
       // ***
       // *** 在目标 HTML 中以几个模块加载(js/css)
       // ***
+      polyfills: `./${conf.path.src('polyfills')}`,
       app: ['bootstrap.css', 'leaflet.css', `./${conf.path.src('index.pcss')}`, `./${conf.path.src('index')}`],
       // 'babel-polyfill': ['babel-polyfill'],
       // vendor: Object.keys(pkg.dependencies),
