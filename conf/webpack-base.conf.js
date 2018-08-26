@@ -23,6 +23,7 @@ const stylelintOptions = require('./stylelint-options.conf');
 const cssLoaders = require('./css-loaders.conf');
 
 const urlLoaderLimit = 2000; // 内嵌 font/svg/png 大小限制
+const MB = 1024 * 1024;
 
 module.exports = function webpackBaseConf(env) {
   function isProduction() {
@@ -255,8 +256,14 @@ module.exports = function webpackBaseConf(env) {
       // ***
       // *** 在目标 HTML 中以几个模块加载(js/css)
       // ***
-      polyfills: `./${conf.path.src('polyfills')}`,
-      app: ['bootstrap.css', 'leaflet.css', `./${conf.path.src('index.pcss')}`, `./${conf.path.src('index')}`],
+      // polyfills: `./${conf.path.src('polyfills')}`,
+      app: [
+        'bootstrap.css',
+        'leaflet.css',
+        `./${conf.path.src('index.pcss')}`,
+        `./${conf.path.src('polyfills')}`,
+        `./${conf.path.src('index')}`,
+      ],
       // 'babel-polyfill': ['babel-polyfill'],
       // vendor: Object.keys(pkg.dependencies),
       // 'vendor-base': ['jquery', 'bootstrap', 'bootstrap.css'],
@@ -320,8 +327,10 @@ module.exports = function webpackBaseConf(env) {
     },
     optimization: {
       noEmitOnErrors: true,
+      // runtimeChunk: 'single',
       splitChunks: {
         chunks: 'all',
+        maxSize: (isProduction() ? 1 : 5) * MB,
       },
       minimizer: [
         new UglifyJsPlugin({
