@@ -26,7 +26,7 @@ module.exports = function webpackDistConf(env) {
     devtool: 'source-map', // 'cheap-module-source-map' 会造成 js map 文件失效
     output: {
       path: path.join(process.cwd(), conf.paths.dist),
-      filename: '[name]-[chunkhash].js',
+      filename: '[name].[chunkhash].js',
       chunkFilename: '[name].[chunkhash].js',
       // libraryTarget: 'umd',
       // umdNamedDefine: true,

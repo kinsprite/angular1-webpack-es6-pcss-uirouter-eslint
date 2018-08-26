@@ -65,7 +65,7 @@ module.exports = function webpackBaseConf(env) {
             loader: 'file-loader',
             options: {
               // use HASH file name for 'production
-              name: isProduction() ? '[name]-[hash].[ext]' : '[path][name].[ext]',
+              name: isProduction() ? '[name].[hash].[ext]' : '[path][name].[ext]',
               outputPath: 'images/',
               // publicPath: 'images/',
             },
@@ -78,7 +78,7 @@ module.exports = function webpackBaseConf(env) {
             loader: 'file-loader',
             options: {
               // use HASH file name for 'production
-              name: isProduction() ? 'sprite-[hash].[ext]' : '[path][name].[ext]',
+              name: isProduction() ? 'sprite.[hash].[ext]' : '[path][name].[ext]',
               outputPath: 'images/',
               // publicPath: 'images/',
             },
@@ -103,7 +103,7 @@ module.exports = function webpackBaseConf(env) {
           options: {
             limit: urlLoaderLimit,
             // use HASH file name for 'production
-            name: isProduction() ? '[name]-[hash].[ext]' : '[path][name].[ext]',
+            name: isProduction() ? '[name].[hash].[ext]' : '[path][name].[ext]',
             outputPath: 'fonts/',
             // publicPath: 'fonts/',
           },
@@ -116,7 +116,7 @@ module.exports = function webpackBaseConf(env) {
           options: {
             limit: urlLoaderLimit,
             // use HASH file name for 'production
-            name: isProduction() ? '[name]-[hash].[ext]' : '[path][name].[ext]',
+            name: isProduction() ? '[name].[hash].[ext]' : '[path][name].[ext]',
             outputPath: 'images/',
             // publicPath: 'images/',
           },
@@ -128,7 +128,7 @@ module.exports = function webpackBaseConf(env) {
           options: {
             limit: urlLoaderLimit,
             // use HASH file name for 'production
-            name: isProduction() ? 'sprite-[hash].[ext]' : '[path][name].[ext]',
+            name: isProduction() ? 'sprite.[hash].[ext]' : '[path][name].[ext]',
             outputPath: 'images/',
             // publicPath: 'images/',
           },
@@ -140,7 +140,7 @@ module.exports = function webpackBaseConf(env) {
           options: {
             limit: urlLoaderLimit,
             // use HASH file name for 'production
-            name: isProduction() ? '[name]-[hash].[ext]' : '[path][name].[ext]',
+            name: isProduction() ? '[name].[hash].[ext]' : '[path][name].[ext]',
             outputPath: 'fonts/',
             // publicPath: 'fonts/',
           },
@@ -208,8 +208,8 @@ module.exports = function webpackBaseConf(env) {
           append: false,
         }),
         new MiniCssExtractPlugin({
-          filename: isProduction() ? '[name]-[contenthash].css' : '[name].css',
-          chunkFilename: isProduction() ? '[id]-[contenthash].css' : '[id].css',
+          filename: isProduction() ? '[name].[contenthash].css' : '[name].css',
+          chunkFilename: isProduction() ? '[name].[contenthash].css' : '[name].[id].css',
         }),
         // new ChunkManifestPlugin({
         //   filename: 'chunk-manifest.json',
@@ -330,7 +330,15 @@ module.exports = function webpackBaseConf(env) {
       // runtimeChunk: 'single',
       splitChunks: {
         chunks: 'all',
-        maxSize: (isProduction() ? 1 : 5) * MB,
+        maxSize: (isProduction() ? 1 : 2) * MB,
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.p?css$/,
+            chunks: 'all',
+            enforce: true,
+          },
+        },
       },
       minimizer: [
         new UglifyJsPlugin({
