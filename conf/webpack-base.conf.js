@@ -10,7 +10,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
+// const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -162,7 +162,6 @@ module.exports = function webpackBaseConf(env) {
           test: /\.js$/,
           exclude: /node_modules/,
           use: [
-            'ng-annotate-loader',
             'babel-loader',
           ],
         },

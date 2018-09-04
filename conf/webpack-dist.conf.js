@@ -7,7 +7,7 @@ const path = require('path');
 const os = require('os');
 
 const WebpackChunkHash = require('webpack-chunk-hash');
-const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
+// const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 
 const conf = require('./gulp.conf');
 const baseConfig = require('./webpack-base.conf');

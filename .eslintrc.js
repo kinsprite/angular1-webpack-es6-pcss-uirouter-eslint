@@ -18,7 +18,6 @@ module.exports = {
   plugins: [
     'import',
     'promise',
-    'compat',
     'json',
     'filenames',
   ],
@@ -183,11 +182,6 @@ module.exports = {
             'gulp_tasks/*.js',
             'conf/**/*.js',
         ]}],
-
-    /**
-     * compat
-     */
-    'compat/compat': 'off',
 
     /**
      * filenames
