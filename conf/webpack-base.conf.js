@@ -335,7 +335,7 @@ module.exports = function webpackBaseConf(env) {
             name: 'styles',
             test: /\.p?css$/,
             chunks: 'all',
-            enforce: true,
+            // enforce: true,
           },
         },
       },
@@ -345,7 +345,18 @@ module.exports = function webpackBaseConf(env) {
           parallel: true,
           sourceMap: true, // set to true if you want JS source maps
         }),
-        new OptimizeCSSAssetsPlugin({}),
+        new OptimizeCSSAssetsPlugin({
+          cssProcessorOptions: {
+            discardComments: {
+              removeAll: true,
+            },
+            map: {
+              inline: false,
+              annotation: true,
+            },
+            sourceMap: true,
+          },
+        }),
       ],
     },
   };
